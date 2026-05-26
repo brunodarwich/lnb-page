@@ -2,9 +2,6 @@
   "name": "lnb-page",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@vercel/kv": "^1.0.1"
-  },
   "scripts": {
     "dev": "vercel dev",
     "start": "vercel dev"
