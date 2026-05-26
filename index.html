@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Lá na Brasília - O bairro conectado</title>
@@ -6,7 +6,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
@@ -116,36 +115,42 @@
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-innovation-lime selection:text-deep-contrast">
 <!-- TopNavBar Component -->
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-surface/80 backdrop-blur-md dark:bg-surface-container-highest/80 border-b border-outline-variant/10 shadow-sm shadow-secondary/5">
-<a class="font-display-lg text-headline-md text-primary dark:text-primary-fixed tracking-tight" href="#">
+<a class="font-display-lg text-headline-md text-primary dark:text-primary-fixed tracking-tight" href="index.html">
             Lá na Brasília
         </a>
 <div class="hidden md:flex items-center gap-8">
-<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="#">App</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Benefits</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Community</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="index.html">Início</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="sobre.html">Sobre a Proposta</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="contato.html">Contato</a>
 </div>
-<button class="bg-deep-contrast text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-80 transition-opacity duration-300 scale-95 active:scale-90 transition-transform">
-            Baixar App
-        </button>
+<span class="bg-deep-contrast/10 dark:bg-primary-fixed-dim/20 text-deep-contrast dark:text-primary-fixed px-5 py-2.5 rounded-full font-label-md text-label-md select-none font-semibold text-center border border-deep-contrast/20">
+    Lançamento: 25 de Agosto
+</span>
 </nav>
 <main>
 <!-- Hero Section -->
 <section class="relative h-screen min-h-[600px] flex items-center justify-center pt-20">
 <!-- Background Image with Overlay -->
 <div class="absolute inset-0 z-0 bg-deep-contrast">
-<img alt="Interactive Map" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtyE8mKSX7GDj1ib72dqglRFeLopbXTG4F8AuCZwlhv0pE1K0P7-dIxgH8riYApwvVGzbbeMWGxXXo-8X4Nl8_n1HsikFJfDezCSKjHC6TytxrWKRpAxdHXJzwjh863DPIV3YC65bpucGkRqjadqh-YLSJTRcwaWlYw-QhaI5MWsWn1YwGV8sss7WwG3cuO_49spKIjHuElI1ftI6eFg8jUkmrHPAb_AQ8YuJi9wJUTfIRR3AvKzWn_U7WRXRAoiEp7vmDXRDK7cQ">
+<img alt="Mapa do Bairro" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtyE8mKSX7GDj1ib72dqglRFeLopbXTG4F8AuCZwlhv0pE1K0P7-dIxgH8riYApwvVGzbbeMWGxXXo-8X4Nl8_n1HsikFJfDezCSKjHC6TytxrWKRpAxdHXJzwjh863DPIV3YC65bpucGkRqjadqh-YLSJTRcwaWlYw-QhaI5MWsWn1YwGV8sss7WwG3cuO_49spKIjHuElI1ftI6eFg8jUkmrHPAb_AQ8YuJi9wJUTfIRR3AvKzWn_U7WRXRAoiEp7vmDXRDK7cQ">
 <div class="absolute inset-0 bg-gradient-to-t from-deep-contrast/90 via-deep-contrast/40 to-transparent"></div>
 </div>
 <!-- Content -->
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-[800px] mx-auto flex flex-col items-center gap-8">
 <h1 class="font-display-lg text-display-lg text-white text-balance max-w-4xl">Todo o bairro Brasília em um só lugar: conecte-se com negócios, serviços e pessoas.</h1>
-<button class="bg-innovation-lime text-deep-contrast px-8 py-4 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity duration-300 scale-100 hover:scale-105 active:scale-95 shadow-lg">
-                    Abrir o App
-                </button>
+<p class="text-white/80 text-body-lg max-w-2xl">O aplicativo oficial está chegando! Receba um aviso no dia do lançamento e seja um dos primeiros a conectar-se com o bairro.</p>
+<!-- Pre-launch Email Form -->
+<form onsubmit="alert('Obrigado! Cadastro realizado com sucesso.'); return false;" class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md bg-white/10 p-2 rounded-2xl backdrop-blur-md border border-white/20">
+    <input type="email" placeholder="Digite seu melhor e-mail" class="w-full bg-transparent text-white placeholder-white/60 px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-innovation-lime focus:outline-none" required>
+    <button type="submit" class="w-full sm:w-auto whitespace-nowrap bg-innovation-lime text-deep-contrast px-6 py-3 rounded-xl font-label-md text-label-md hover:opacity-90 transition-opacity font-bold">
+        Me avise!
+    </button>
+</form>
+<p class="text-white/60 text-sm">Lançamento oficial no dia 25 de Agosto de 2026</p>
 </div>
 </section>
 <!-- Section 1: Tudo o que o bairro oferece -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<section id="bairro" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="mb-16">
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center">Tudo o que o bairro oferece</h2>
 </div>
@@ -156,7 +161,7 @@
 <span class="material-symbols-outlined" data-icon="groups">groups</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-primary mb-3">Encontros</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Conecte-se com pessoas próximas, participe de eventos locais e fortaleça os laços da comunidade.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Conecte-se com vizinhos, participe de eventos locais e crie laços fortes com as pessoas ao seu redor.</p>
 </div>
 <!-- Card 2 -->
 <div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
@@ -164,7 +169,7 @@
 <span class="material-symbols-outlined" data-icon="campaign">campaign</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-primary mb-3">Avisos</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Fique por dentro das novidades, alertas de segurança e comunicados importantes do bairro.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Fique sabendo de tudo o que acontece: notícias, alertas e comunicados importantes do bairro Brasília.</p>
 </div>
 <!-- Card 3 -->
 <div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
@@ -172,7 +177,7 @@
 <span class="material-symbols-outlined" data-icon="storefront">storefront</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-primary mb-3">Oportunidades</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Descubra negócios locais, serviços e oportunidades exclusivas dentro da nossa rede.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Descubra comércios da região, compre de quem está perto e conheça vagas ou serviços recomendados.</p>
 </div>
 </div>
 </section>
@@ -181,82 +186,82 @@
 <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-8">A informação não deveria se perder</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                    Em um mundo hiperconectado, muitas vezes perdemos o contato com quem está mais perto. O Lá na Brasília nasceu para resgatar essa conexão local, organizando a vida do bairro de forma inteligente e acessível. Queremos transformar a maneira como moradores e comerciantes interagem, criando um ecossistema digital que fortalece o real.
+                    Em um mundo onde tudo parece estar distante e na internet, muitas vezes esquecemos de quem está bem ao nosso lado. O Lá na Brasília nasceu justamente para valorizar as conexões reais do nosso bairro, organizando comércios, serviços e avisos de forma muito simples e rápida. A gente quer ajudar vizinhos a se apoiarem e fazer a economia local crescer.
                 </p>
 </div>
 </section>
 <!-- Section 3: Funcionalidades -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <div class="mb-12 text-center md:text-left">
-        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Funcionalidades</h2>
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Funcionalidades do App</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Mapa Card -->
         <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
             <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
-                <img src="https://lh3.googleusercontent.com/aida/ADBb0uiYqm84YPg7iPlI-afyNQm6_fv1zmlcMB8JIqoA5Nl46t1M229rAZbTaCVS9ohVr5QsU8iSeM6sTJlD88I2I1IAnJHsZUsv66GqkkXdLjwXaJk4l5Gexhxm8NK64Nk4_DC5hL5vybwpAWA5UthjhPIFzHdA7W4G290eu1oHJ_1PJzG_PwODvF4UGfITJWxZJJYnSJgQz46n03Iv_IWf0EaSwCQ8WZ0moQ4yt6ZFhukgc0Xp06eEpVOjPA" alt="Mapa" class="w-full h-full object-cover">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0uiYqm84YPg7iPlI-afyNQm6_fv1zmlcMB8JIqoA5Nl46t1M229rAZbTaCVS9ohVr5QsU8iSeM6sTJlD88I2I1IAnJHsZUsv66GqkkXdLjwXaJk4l5Gexhxm8NK64Nk4_DC5hL5vybwpAWA5UthjhPIFzHdA7W4G290eu1oHJ_1PJzG_PwODvF4UGfITJWxZJJYnSJgQz46n03Iv_IWf0EaSwCQ8WZ0moQ4yt6ZFhukgc0Xp06eEpVOjPA" alt="Mapa do Bairro" class="w-full h-full object-cover">
             </div>
             <div class="p-6">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="material-symbols-outlined text-electric-accent text-xl">map</span>
-                    <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Mapa</h3>
+                    <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Mapa Local</h3>
                 </div>
-                <p class="font-body-md text-sm text-on-surface-variant">Explore pontos de interesse e navegue pelo bairro.</p>
+                <p class="font-body-md text-sm text-on-surface-variant">Encontre pontos de interesse, lojas e referências do bairro.</p>
             </div>
         </div>
 
         <!-- Catálogo Card -->
         <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
             <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
-                <img src="https://lh3.googleusercontent.com/aida/ADBb0ui0qxU_nuEpT3etudwZYWjJPIQDPMICgdIH5mbwfnC7xpilinWMeLWJTDQQIUoAeMTNK7ZYf0kGtrTgTm2I6at0Qip_Hi7GkE7zVVr7AlibeYmlMzCCZUMNsIUSDCw9NWqC5uvpSIp63Vt17grjisVRmEDTdJJa4R3TEnKui6QQyMiO4PuwTu6DF83TyUXDyM2XA3SlJ0qH8RhohvUlPo5HcKfVRbgwn9zCNt4T5Y9PA3LiQ93vFv5v4-M" alt="Catálogo" class="w-full h-full object-cover">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0ui0qxU_nuEpT3etudwZYWjJPIQDPMICgdIH5mbwfnC7xpilinWMeLWJTDQQIUoAeMTNK7ZYf0kGtrTgTm2I6at0Qip_Hi7GkE7zVVr7AlibeYmlMzCCZUMNsIUSDCw9NWqC5uvpSIp63Vt17grjisVRmEDTdJJa4R3TEnKui6QQyMiO4PuwTu6DF83TyUXDyM2XA3SlJ0qH8RhohvUlPo5HcKfVRbgwn9zCNt4T5Y9PA3LiQ93vFv5v4-M" alt="Catálogo do Bairro" class="w-full h-full object-cover">
             </div>
             <div class="p-6">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="material-symbols-outlined text-electric-accent text-xl">category</span>
                     <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Catálogo</h3>
                 </div>
-                <p class="font-body-md text-sm text-on-surface-variant">Encontre rapidamente serviços e comércios locais.</p>
+                <p class="font-body-md text-sm text-on-surface-variant">Ache contatos e informações de prestadores de serviço locais de forma rápida.</p>
             </div>
         </div>
 
         <!-- Mural Card -->
         <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
             <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
-                <img src="https://lh3.googleusercontent.com/aida/ADBb0ugH5QN2nVITxkAnvt8ySaIu8IyUGSG9zVxnGukNvUeFO4a1msQbrQOTnvLNC_0u9LqM36JMzcJ2GNfWS8eCioj2ANUP8MEEFb6eH6YEmRrKZEj-sPWCr7ogYZuC-SqGOCX6SAMPkgRTgU3eEThtaMoQbWmzud3WvaFNrT2cFMPcocy-lGafMZZ_Gb9SzZgWng9A_FTv8tStVHcqnUvjHTnUx5V0fE5gHDtyjXPeV72VjCWdyZRujKLgsg" alt="Mural" class="w-full h-full object-cover">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0ugH5QN2nVITxkAnvt8ySaIu8IyUGSG9zVxnGukNvUeFO4a1msQbrQOTnvLNC_0u9LqM36JMzcJ2GNfWS8eCioj2ANUP8MEEFb6eH6YEmRrKZEj-sPWCr7ogYZuC-SqGOCX6SAMPkgRTgU3eEThtaMoQbWmzud3WvaFNrT2cFMPcocy-lGafMZZ_Gb9SzZgWng9A_FTv8tStVHcqnUvjHTnUx5V0fE5gHDtyjXPeV72VjCWdyZRujKLgsg" alt="Mural de Avisos" class="w-full h-full object-cover">
             </div>
             <div class="p-6">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="material-symbols-outlined text-electric-accent text-xl">dashboard</span>
                     <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Mural</h3>
                 </div>
-                <p class="font-body-md text-sm text-on-surface-variant">Acompanhe as últimas publicações da comunidade.</p>
+                <p class="font-body-md text-sm text-on-surface-variant">Acompanhe avisos de vizinhos, eventos locais e achados e perdidos.</p>
             </div>
         </div>
 
         <!-- Assistente Card -->
         <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
             <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
-                <img src="https://lh3.googleusercontent.com/aida/ADBb0ujzMYXLpi1HrLtYKs7QVt9Jj3oxZZzOCa3bGyILmhFX40JMhkWLLRWBDeUQe9RRn38lcz6BSYpc5sLys9EC_bWQ5PI_SrUjcIm1UuoE-7C4p45SXtuLPCwYyPqkGZYp9Hx0Gb0e3eeacSQLwGez_PwMg26txtRd9yP5EJ3hWiEmAucOud2zWl7yhC1lYmYKzKjwvaXYCIyDT0O-XUf4xBEvEWBZ7xntNnhWrucq8r1eT68iyDWtb3KFqg" alt="Assistente AI" class="w-full h-full object-cover">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0ujzMYXLpi1HrLtYKs7QVt9Jj3oxZZzOCa3bGyILmhFX40JMhkWLLRWBDeUQe9RRn38lcz6BSYpc5sLys9EC_bWQ5PI_SrUjcIm1UuoE-7C4p45SXtuLPCwYyPqkGZYp9Hx0Gb0e3eeacSQLwGez_PwMg26txtRd9yP5EJ3hWiEmAucOud2zWl7yhC1lYmYKzKjwvaXYCIyDT0O-XUf4xBEvEWBZ7xntNnhWrucq8r1eT68iyDWtb3KFqg" alt="Assistente Virtual" class="w-full h-full object-cover">
             </div>
             <div class="p-6">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="material-symbols-outlined text-electric-accent text-xl">smart_toy</span>
                     <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Assistente</h3>
                 </div>
-                <p class="font-body-md text-sm text-on-surface-variant">Ajuda inteligente para encontrar o que você precisa.</p>
+                <p class="font-body-md text-sm text-on-surface-variant">Pergunte e encontre o que precisa no bairro Brasília com ajuda da nossa inteligência.</p>
             </div>
         </div>
     </div>
 </section>
 <!-- Section 4: Comunidade -->
-<section class="py-24 border-t border-surface-variant relative bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAEA_AqUX9xjfd2B3Dw5bYfkPxtPScUWT58lSrGu6DP-YnLdtyPQYc7oodRDZqRgD5LrTXQ0EB7aSTE8gX8vJJohfEbOfVgtcsNxRRSTd183lqH_trrE1dHbYIFwKzQvllCzPhpI5cCzLgI3PlgZoAr9W8bE38_kou10D-FTB_Z5VHWnHhZ_ycqoeSddLiuhQIyhJYqiD87PkYkD3mVn6_HFaVVlX0mm7ZT4Hs27E0swP0V51yW8w7WhEQMFskABp5VRz3Po0jjAwf_ig&quot;);"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
+<section id="comunidade" class="py-24 border-t border-surface-variant relative bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAEA_AqUX9xjfd2B3Dw5bYfkPxtPScUWT58lSrGu6DP-YnLdtyPQYc7oodRDZqRgD5LrTXQ0EB7aSTE8gX8vJJohfEbOfVgtcsNxRRSTd183lqH_trrE1dHbYIFwKzQvllCzPhpI5cCzLgI3PlgZoAr9W8bE38_kou10D-FTB_Z5VHWnHhZ_ycqoeSddLiuhQIyhJYqiD87PkYkD3mVn6_HFaVVlX0mm7ZT4Hs27E0swP0V51yW8w7WhEQMFskABp5VRz3Po0jjAwf_ig&quot;);"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
     <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-6">Comunidade</h2>
-    <p class="font-body-md text-body-md text-white/90 mb-8 max-w-2xl">
-        Mais do que um aplicativo, somos uma rede de apoio. Acreditamos que um bairro forte se constrói com moradores engajados. Junte-se a nós para compartilhar histórias, resolver problemas juntos e celebrar as conquistas da nossa comunidade.
+    <p class="font-body-md text-body-md text-white/90 mb-8 max-w-2xl font-normal leading-relaxed">
+        Mais do que tecnologia, o Lá na Brasília é sobre pessoas. Acreditamos que a força do nosso bairro vem da colaboração diária. Junte-se a nós para fazer a diferença, construir soluções conjuntas e celebrar tudo de bom que a nossa vizinhança tem.
     </p>
-    <button class="bg-white text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-white/90 transition-colors shadow-lg">
-        Faça Parte
-    </button>
+    <a href="sobre.html" class="bg-white text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-white/90 transition-colors shadow-lg font-bold">
+        Conhecer o Projeto
+    </a>
 </div></section>
 </main>
 <!-- Footer Component -->
@@ -265,79 +270,13 @@
             Lá na Brasília
         </div>
 <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Privacidade</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Termos</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Suporte</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Contato</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="privacidade.html">Privacidade</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="termos.html">Termos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="contato.html">Suporte</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="contato.html">Contato</a>
 </div>
 <div class="font-body-md text-body-md text-on-surface dark:text-on-primary-fixed text-center md:text-right text-sm">
-            © 2024 Lá na Brasília. Comunidade e Inovação em Altamira.
+            © 2026 Lá na Brasília. Comunidade e Inovação em Altamira.
         </div>
 </footer>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const dots = document.querySelectorAll('.feature-dot');
-        const texts = document.querySelectorAll('.feature-text');
-        const imgs = document.querySelectorAll('.feature-img');
-        let currentIndex = 0;
-        const total = dots.length;
-        let interval;
-
-        function updateCarousel(index) {
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.remove('bg-surface-variant');
-                    dot.classList.add('bg-electric-accent');
-                } else {
-                    dot.classList.add('bg-surface-variant');
-                    dot.classList.remove('bg-electric-accent');
-                }
-            });
-
-            texts.forEach((text, i) => {
-                if (i === index) {
-                    text.classList.remove('opacity-0', 'z-0', 'pointer-events-none');
-                    text.classList.add('opacity-100', 'z-10');
-                } else {
-                    text.classList.add('opacity-0', 'z-0', 'pointer-events-none');
-                    text.classList.remove('opacity-100', 'z-10');
-                }
-            });
-
-            imgs.forEach((img, i) => {
-                if (i === index) {
-                    img.classList.remove('opacity-0', 'z-0');
-                    img.classList.add('opacity-100', 'z-10');
-                } else {
-                    img.classList.add('opacity-0', 'z-0');
-                    img.classList.remove('opacity-100', 'z-10');
-                }
-            });
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % total;
-            updateCarousel(currentIndex);
-        }
-
-        function startCarousel() {
-            interval = setInterval(nextSlide, 4500);
-        }
-
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                currentIndex = i;
-                updateCarousel(currentIndex);
-                clearInterval(interval);
-                startCarousel();
-            });
-        });
-
-        startCarousel();
-    });
-</script>
-
-
-
-
 </body></html>
