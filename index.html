@@ -301,12 +301,13 @@
 <h1 class="motion-reveal font-display-lg text-[2rem] leading-[1.1] sm:text-[2.65rem] sm:leading-[1.08] md:text-display-lg text-white text-balance tracking-tight max-w-4xl">Todo o bairro Brasília em um só lugar: conecte-se com negócios, serviços e pessoas.</h1>
 <p class="motion-reveal motion-delay-1 text-white/80 text-base leading-7 md:text-body-lg max-w-2xl">O aplicativo oficial está chegando! Receba um aviso no dia do lançamento e seja um dos primeiros a conectar-se com o bairro.</p>
 <!-- Pre-launch Email Form -->
-<form onsubmit="alert('Obrigado! Cadastro realizado com sucesso.'); return false;" class="motion-reveal motion-delay-2 flex flex-col sm:flex-row items-center gap-3 w-full max-w-md bg-white/10 p-2 rounded-2xl backdrop-blur-md border border-white/20">
+<form onsubmit="alert('Formulario demonstrativo: nenhum dado foi enviado ou armazenado.'); return false;" class="motion-reveal motion-delay-2 flex flex-col sm:flex-row items-center gap-3 w-full max-w-md bg-white/10 p-2 rounded-2xl backdrop-blur-md border border-white/20" aria-describedby="prelaunch-form-notice">
     <input type="email" placeholder="Digite seu melhor e-mail" class="w-full bg-transparent text-white placeholder-white/60 px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-innovation-lime focus:outline-none" required>
     <button type="submit" class="motion-button w-full sm:w-auto whitespace-nowrap bg-innovation-lime text-deep-contrast px-6 py-3 rounded-xl font-label-md text-label-md hover:opacity-90 font-bold">
         Me avise!
     </button>
 </form>
+<p id="prelaunch-form-notice" class="motion-reveal motion-delay-3 text-white/60 text-xs max-w-md">Formulario demonstrativo: antes do lancamento, este campo nao envia nem armazena seu e-mail.</p>
 <p class="motion-reveal motion-delay-3 text-white/60 text-sm">Lançamento oficial no dia 8 de Agosto de 2026</p>
 </div>
 </section>
