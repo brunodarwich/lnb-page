@@ -33,6 +33,17 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Por favor, insira um e-mail válido.' });
     }
 
+    // Verificar se as variáveis do Vercel KV estão conectadas.
+    // Se não estiverem, usamos um fallback temporário gracioso (ex: ambiente local ou aguardando conexão no painel da Vercel)
+    if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+      console.warn("AVISO: Vercel KV não está conectado/configurado no painel da Vercel. A inscrição foi simulada com sucesso.");
+      
+      return res.status(200).json({ 
+        success: true, 
+        message: 'Inscrição simulada com sucesso! (Aguardando conexão do banco de dados KV no painel da Vercel).' 
+      });
+    }
+
     // Salvar no Vercel KV de forma segura e protegida
     // A chave usa um prefixo próprio e o valor guarda o email e a data de consentimento (em conformidade com a LGPD)
     const timestamp = new Date().toISOString();
@@ -60,7 +71,7 @@ module.exports = async (req, res) => {
   } catch (error) {
     console.error('Erro na API de inscrição:', error);
     return res.status(500).json({ 
-      error: 'Ocorreu um erro interno ao salvar o e-mail. Tente novamente mais tarde.' 
+      error: `Erro ao processar a inscrição: ${error.message}` 
     });
   }
 };
