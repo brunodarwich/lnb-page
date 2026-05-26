@@ -110,6 +110,88 @@
         .ambient-glow {
             box-shadow: 0 10px 40px -10px rgba(0, 92, 186, 0.06);
         }
+
+        .motion-reveal {
+            opacity: 0;
+            transform: translate3d(0, 22px, 0);
+            transition:
+                opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+
+        .motion-reveal.is-visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .motion-delay-1 {
+            transition-delay: 0.08s;
+        }
+
+        .motion-delay-2 {
+            transition-delay: 0.16s;
+        }
+
+        .motion-delay-3 {
+            transition-delay: 0.24s;
+        }
+
+        .motion-delay-4 {
+            transition-delay: 0.32s;
+        }
+
+        .hero-bg-motion {
+            animation: heroDrift 18s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+
+        .motion-float.is-visible {
+            animation: premiumFloat 7s ease-in-out 0.75s infinite;
+        }
+
+        .motion-card-hover {
+            transition:
+                border-color 0.28s ease,
+                box-shadow 0.28s ease,
+                transform 0.28s ease;
+        }
+
+        .motion-card-hover:hover {
+            box-shadow: 0 18px 45px -22px rgba(0, 0, 0, 0.28);
+            transform: translateY(-4px);
+        }
+
+        .motion-button {
+            transition:
+                background-color 0.24s ease,
+                box-shadow 0.24s ease,
+                opacity 0.24s ease,
+                transform 0.24s ease;
+        }
+
+        .motion-button:hover {
+            box-shadow: 0 14px 32px -18px rgba(0, 0, 0, 0.45);
+            transform: translateY(-2px);
+        }
+
+        @keyframes heroDrift {
+            0% {
+                transform: scale(1.02) translate3d(-0.8%, -0.4%, 0);
+            }
+            100% {
+                transform: scale(1.07) translate3d(0.8%, 0.4%, 0);
+            }
+        }
+
+        @keyframes premiumFloat {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(-0.35deg);
+            }
+            50% {
+                transform: translate3d(0, -10px, 0) rotate(0.35deg);
+            }
+        }
         
         /* Map Pin Bouncing Pop-in animation */
         @keyframes pinBounce {
@@ -163,6 +245,29 @@
             stroke-dashoffset: 1000;
             animation: drawStreet 2.5s ease-out forwards;
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+                transition-delay: 0s !important;
+            }
+
+            .motion-reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .hero-bg-motion,
+            .motion-float.is-visible {
+                animation: none !important;
+                transform: none !important;
+            }
+        }
     </style>
     <!-- Leaflet Interactive Maps CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -188,31 +293,31 @@
 <section class="relative h-screen min-h-[600px] flex items-center justify-center pt-20">
 <!-- Background Image with Overlay -->
 <div class="absolute inset-0 z-0 bg-deep-contrast">
-<img alt="Fundo do Bairro" class="w-full h-full object-cover opacity-80" src="assets/images/hero-img.jpeg">
+<img alt="Fundo do Bairro" class="w-full h-full object-cover opacity-80 hero-bg-motion" src="assets/images/hero-img.jpeg">
 <div class="absolute inset-0 bg-gradient-to-t from-deep-contrast/90 via-deep-contrast/40 to-transparent"></div>
 </div>
 <!-- Content -->
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-[800px] mx-auto flex flex-col items-center gap-5 md:gap-8">
-<h1 class="font-display-lg text-[2rem] leading-[1.1] sm:text-[2.65rem] sm:leading-[1.08] md:text-display-lg text-white text-balance tracking-tight max-w-4xl">Todo o bairro Brasília em um só lugar: conecte-se com negócios, serviços e pessoas.</h1>
-<p class="text-white/80 text-base leading-7 md:text-body-lg max-w-2xl">O aplicativo oficial está chegando! Receba um aviso no dia do lançamento e seja um dos primeiros a conectar-se com o bairro.</p>
+<h1 class="motion-reveal font-display-lg text-[2rem] leading-[1.1] sm:text-[2.65rem] sm:leading-[1.08] md:text-display-lg text-white text-balance tracking-tight max-w-4xl">Todo o bairro Brasília em um só lugar: conecte-se com negócios, serviços e pessoas.</h1>
+<p class="motion-reveal motion-delay-1 text-white/80 text-base leading-7 md:text-body-lg max-w-2xl">O aplicativo oficial está chegando! Receba um aviso no dia do lançamento e seja um dos primeiros a conectar-se com o bairro.</p>
 <!-- Pre-launch Email Form -->
-<form onsubmit="alert('Obrigado! Cadastro realizado com sucesso.'); return false;" class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md bg-white/10 p-2 rounded-2xl backdrop-blur-md border border-white/20">
+<form onsubmit="alert('Obrigado! Cadastro realizado com sucesso.'); return false;" class="motion-reveal motion-delay-2 flex flex-col sm:flex-row items-center gap-3 w-full max-w-md bg-white/10 p-2 rounded-2xl backdrop-blur-md border border-white/20">
     <input type="email" placeholder="Digite seu melhor e-mail" class="w-full bg-transparent text-white placeholder-white/60 px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-innovation-lime focus:outline-none" required>
-    <button type="submit" class="w-full sm:w-auto whitespace-nowrap bg-innovation-lime text-deep-contrast px-6 py-3 rounded-xl font-label-md text-label-md hover:opacity-90 transition-opacity font-bold">
+    <button type="submit" class="motion-button w-full sm:w-auto whitespace-nowrap bg-innovation-lime text-deep-contrast px-6 py-3 rounded-xl font-label-md text-label-md hover:opacity-90 font-bold">
         Me avise!
     </button>
 </form>
-<p class="text-white/60 text-sm">Lançamento oficial no dia 8 de Agosto de 2026</p>
+<p class="motion-reveal motion-delay-3 text-white/60 text-sm">Lançamento oficial no dia 8 de Agosto de 2026</p>
 </div>
 </section>
 <!-- Section 1: Tudo o que o bairro oferece -->
 <section id="bairro" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="mb-16">
-<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center leading-tight tracking-tight">Tudo o que o bairro oferece</h2>
+<h2 class="motion-reveal font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center leading-tight tracking-tight">Tudo o que o bairro oferece</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Card 1 -->
-<div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
+<div class="motion-reveal motion-delay-1 motion-card-hover bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant group">
 <div class="w-12 h-12 rounded-full bg-soft-sky/30 flex items-center justify-center mb-6 text-electric-accent">
 <span class="material-symbols-outlined" data-icon="groups">groups</span>
 </div>
@@ -220,7 +325,7 @@
 <p class="font-body-md text-body-md text-on-surface-variant">Conecte-se com vizinhos, participe de eventos locais e crie laços fortes com as pessoas ao seu redor.</p>
 </div>
 <!-- Card 2 -->
-<div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
+<div class="motion-reveal motion-delay-2 motion-card-hover bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant group">
 <div class="w-12 h-12 rounded-full bg-innovation-lime/30 flex items-center justify-center mb-6 text-deep-contrast">
 <span class="material-symbols-outlined" data-icon="campaign">campaign</span>
 </div>
@@ -228,7 +333,7 @@
 <p class="font-body-md text-body-md text-on-surface-variant">Fique sabendo de tudo o que acontece: notícias, alertas e comunicados importantes do bairro Brasília.</p>
 </div>
 <!-- Card 3 -->
-<div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
+<div class="motion-reveal motion-delay-3 motion-card-hover bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant group">
 <div class="w-12 h-12 rounded-full bg-secondary-fixed/50 flex items-center justify-center mb-6 text-secondary">
 <span class="material-symbols-outlined" data-icon="storefront">storefront</span>
 </div>
@@ -246,25 +351,25 @@
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-12">
         <!-- Header Row (Badge + Title) -->
         <div class="w-full max-w-4xl text-left space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-soft-sky/30 border border-soft-sky/40 text-secondary font-semibold text-xs uppercase tracking-wider">
+            <div class="motion-reveal inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-soft-sky/30 border border-soft-sky/40 text-secondary font-semibold text-xs uppercase tracking-wider">
                 <span class="material-symbols-outlined text-sm">local_mall</span>
                 Exclusivo do Bairro Brasília
             </div>
             
-            <h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary leading-[1.1] tracking-tight">
+            <h2 class="motion-reveal motion-delay-1 font-display-lg text-headline-lg-mobile md:text-display-lg text-primary leading-[1.1] tracking-tight">
                 Encontre e apoie quem faz o nosso bairro acontecer
             </h2>
         </div>
 
         <!-- Centered Mockup (50% smaller, tilted, transparent background) -->
-        <div class="w-full flex justify-center py-4 relative select-none">
+        <div class="motion-reveal motion-delay-2 motion-float w-full flex justify-center py-4 relative select-none">
             <img src="assets/images/app-mockup.png" alt="Mockup do Aplicativo Lá na Brasília" class="w-full max-w-[410px] h-auto object-contain select-none pointer-events-none drop-shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
         </div>
 
         <!-- Cards Row (Bottom, side-by-side, centered) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
             <!-- Card 1: Fácil Navegação -->
-            <div class="flex items-start gap-4 bg-off-white p-6 rounded-[24px] border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-outline-variant/30 transition-all duration-300 group">
+            <div class="motion-reveal motion-delay-2 motion-card-hover flex items-start gap-4 bg-off-white p-6 rounded-[24px] border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-outline-variant/30 group">
                 <div class="flex items-center justify-center p-3 rounded-2xl bg-electric-accent/10 border border-electric-accent/20 text-electric-accent group-hover:scale-110 transition-transform duration-300">
                     <span class="material-symbols-outlined text-2xl font-bold">search</span>
                 </div>
@@ -274,7 +379,7 @@
                 </div>
             </div>
             <!-- Card 2: Perto de Mim -->
-            <div class="flex items-start gap-4 bg-off-white p-6 rounded-[24px] border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-outline-variant/30 transition-all duration-300 group">
+            <div class="motion-reveal motion-delay-3 motion-card-hover flex items-start gap-4 bg-off-white p-6 rounded-[24px] border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-outline-variant/30 group">
                 <div class="flex items-center justify-center p-3 rounded-2xl bg-[#E4F222]/35 border border-[#E4F222]/50 text-deep-contrast group-hover:scale-110 transition-transform duration-300">
                     <span class="material-symbols-outlined text-2xl font-bold">distance</span>
                 </div>
@@ -293,16 +398,16 @@
         
         <!-- Header Row (Text above the map) -->
         <div class="w-full max-w-4xl space-y-4">
-            <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight tracking-tight">
+            <h2 class="motion-reveal font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight tracking-tight">
                 O Bairro Brasília mapeado por completo
             </h2>
-            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            <p class="motion-reveal motion-delay-1 font-body-md text-body-md text-on-surface-variant leading-relaxed">
                 Apoiando quem está perto de você. Cada pin no mapa representa um estabelecimento local verificado de Altamira fortalecendo o seu negócio ou oferecendo um serviço indispensável de forma autônoma.
             </p>
         </div>
         
         <!-- Map Container Row (Full Width) -->
-        <div class="w-full relative h-[500px] sm:h-[600px] md:h-[650px] rounded-[32px] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border-2 border-outline-variant/20 overflow-hidden bg-slate-100 z-10">
+        <div class="motion-reveal motion-delay-2 w-full relative h-[500px] sm:h-[600px] md:h-[650px] rounded-[32px] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border-2 border-outline-variant/20 overflow-hidden bg-slate-100 z-10">
             <!-- Leaflet Map Container -->
             <div id="map" class="w-full h-full"></div>
         </div>
@@ -312,7 +417,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl w-full">
                 
                 <!-- Stat 1 -->
-                <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-surface-variant transition-all duration-300">
+                <div class="motion-reveal motion-delay-1 motion-card-hover bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-surface-variant">
                     <div class="text-3xl font-extrabold text-[#EF4444] tracking-tight mb-1">
                         479
                     </div>
@@ -325,7 +430,7 @@
                 </div>
 
                 <!-- Stat 2 -->
-                <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-surface-variant transition-all duration-300">
+                <div class="motion-reveal motion-delay-2 motion-card-hover bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-surface-variant">
                     <div class="text-3xl font-extrabold text-[#F59E0B] tracking-tight mb-1">
                         190
                     </div>
@@ -478,11 +583,11 @@
 <!-- Section 3: Funcionalidades -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <div class="mb-12 text-center md:text-left">
-        <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight tracking-tight">Funcionalidades do App</h2>
+        <h2 class="motion-reveal font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight tracking-tight">Funcionalidades do App</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Mapa Card -->
-        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+        <div class="motion-reveal motion-delay-1 motion-card-hover bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md flex flex-col">
             <div class="aspect-[9/19.5] w-full overflow-hidden bg-surface-dim">
                 <img src="assets/images/mapa.png" alt="Mapa do Bairro" class="w-full h-full object-cover">
             </div>
@@ -496,7 +601,7 @@
         </div>
 
         <!-- Catálogo Card -->
-        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+        <div class="motion-reveal motion-delay-2 motion-card-hover bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md flex flex-col">
             <div class="aspect-[9/19.5] w-full overflow-hidden bg-surface-dim">
                 <img src="assets/images/catalogo.png" alt="Catálogo do Bairro" class="w-full h-full object-cover">
             </div>
@@ -510,7 +615,7 @@
         </div>
 
         <!-- Mural Card -->
-        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+        <div class="motion-reveal motion-delay-3 motion-card-hover bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md flex flex-col">
             <div class="aspect-[9/19.5] w-full overflow-hidden bg-surface-dim">
                 <img src="assets/images/mural.png" alt="Mural de Avisos" class="w-full h-full object-cover">
             </div>
@@ -524,7 +629,7 @@
         </div>
 
         <!-- Assistente Card -->
-        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+        <div class="motion-reveal motion-delay-4 motion-card-hover bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md flex flex-col">
             <div class="aspect-[9/19.5] w-full overflow-hidden bg-surface-dim">
                 <img src="assets/images/assistente.png" alt="Assistente Virtual" class="w-full h-full object-cover">
             </div>
@@ -540,11 +645,11 @@
 </section>
 <!-- Section 4: Comunidade -->
 <section id="comunidade" class="py-24 border-t border-surface-variant relative bg-cover bg-center" style="background-image: url('assets/images/feira-bsb.jpeg');"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
-    <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-white leading-tight tracking-tight mb-6">Comunidade</h2>
-    <p class="font-body-md text-body-md text-white/90 mb-8 max-w-2xl font-normal leading-relaxed">
+    <h2 class="motion-reveal font-display-lg text-headline-lg-mobile md:text-headline-lg text-white leading-tight tracking-tight mb-6">Comunidade</h2>
+    <p class="motion-reveal motion-delay-1 font-body-md text-body-md text-white/90 mb-8 max-w-2xl font-normal leading-relaxed">
         Mais do que tecnologia, o Lá na Brasília é sobre pessoas. Acreditamos que a força do nosso bairro vem da colaboração diária. Junte-se a nós para fazer a diferença, construir soluções conjuntas e celebrar tudo de bom que a nossa vizinhança tem.
     </p>
-    <a href="sobre.html" class="bg-white text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-white/90 transition-colors shadow-lg font-bold">
+    <a href="sobre.html" class="motion-reveal motion-delay-2 motion-button bg-white text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-white/90 shadow-lg font-bold">
         Conhecer o Projeto
     </a>
 </div></section>
@@ -564,4 +669,31 @@
             © 2026 Lá na Brasília. Comunidade e Inovação em Altamira.
         </div>
 </footer>
+<script>
+    (() => {
+        const motionItems = document.querySelectorAll('.motion-reveal');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            motionItems.forEach((item) => item.classList.add('is-visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, {
+            rootMargin: '0px 0px -8% 0px',
+            threshold: 0.12
+        });
+
+        motionItems.forEach((item) => observer.observe(item));
+    })();
+</script>
 </body></html>
