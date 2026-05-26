@@ -1,178 +1,343 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lá na Brasília | O bairro mais perto de você</title>
-    <meta
-      name="description"
-      content="O Lá na Brasília organiza negócios, serviços, avisos e oportunidades do bairro Brasília, em Altamira, em uma experiência digital simples."
-    />
-    <meta property="og:title" content="Lá na Brasília" />
-    <meta
-      property="og:description"
-      content="Mapa, catálogo, mural e vitrines digitais para fortalecer a vida local do bairro Brasília, em Altamira."
-    />
-    <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Lá na Brasília">
-        <span class="brand-mark">LNB</span>
-        <span>Lá na Brasília</span>
-      </a>
-      <nav aria-label="Navegação principal">
-        <a href="#app">O app</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#comunidade">Comunidade</a>
-      </nav>
-    </header>
-
-    <main id="inicio">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Bairro Brasília, Altamira</p>
-          <h1>O bairro já se move todos os dias. Agora ele também pode ser encontrado.</h1>
-          <p class="lead">
-            O Lá na Brasília transforma a vida local em uma experiência digital clara:
-            mapa, catálogo, mural e vitrines para moradores e empreendedores.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://app.lanabrasilia.com.br">Abrir o app</a>
-            <a class="button secondary" href="#app">Conhecer o projeto</a>
-          </div>
-        </div>
-
-        <div class="app-preview" aria-label="Prévia visual do app Lá na Brasília">
-          <div class="phone">
-            <div class="phone-top">
-              <span></span>
-              <strong>Mapa local</strong>
+<!DOCTYPE html><html class="light" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Lá na Brasília - O bairro conectado</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d0e4ff",
+                        "primary-container": "#1b1c1d",
+                        "deep-contrast": "#08090A",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "secondary-container": "#5095fe",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c7c6c7",
+                        "background": "#f9f9fb",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2e2e4",
+                        "surface-container": "#eeeef0",
+                        "innovation-lime": "#E4F222",
+                        "on-secondary-fixed": "#001b3e",
+                        "secondary": "#005cba",
+                        "on-tertiary-fixed": "#001d35",
+                        "on-primary-fixed": "#1b1c1d",
+                        "primary-fixed-dim": "#c7c6c7",
+                        "secondary-fixed-dim": "#aac7ff",
+                        "surface-variant": "#e2e2e4",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-fixed-variant": "#464748",
+                        "secondary-fixed": "#d7e3ff",
+                        "on-tertiary-container": "#6487ad",
+                        "tertiary-fixed-dim": "#a7caf3",
+                        "inverse-on-surface": "#f0f0f2",
+                        "on-primary-container": "#848485",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#25496c",
+                        "electric-accent": "#0066CC",
+                        "on-secondary-container": "#002d61",
+                        "off-white": "#F5F5F7",
+                        "on-secondary-fixed-variant": "#00458e",
+                        "primary-fixed": "#e3e2e3",
+                        "tertiary": "#000000",
+                        "tertiary-container": "#001d35",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#75777a",
+                        "surface-dim": "#d9dadc",
+                        "outline-variant": "#c5c6c9",
+                        "on-background": "#1a1c1d",
+                        "inverse-surface": "#2f3132",
+                        "surface": "#f9f9fb",
+                        "soft-sky": "#B2D5FF",
+                        "on-surface-variant": "#45474a",
+                        "surface-tint": "#5e5e5f",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1d",
+                        "surface-bright": "#f9f9fb",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f3f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope", "sans-serif"],
+                        "headline-lg": ["Manrope", "sans-serif"],
+                        "headline-md": ["Manrope", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Manrope", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-glow {
+            box-shadow: 0 10px 40px -10px rgba(0, 92, 186, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-innovation-lime selection:text-deep-contrast">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-surface/80 backdrop-blur-md dark:bg-surface-container-highest/80 border-b border-outline-variant/10 shadow-sm shadow-secondary/5">
+<a class="font-display-lg text-headline-md text-primary dark:text-primary-fixed tracking-tight" href="#">
+            Lá na Brasília
+        </a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="#">App</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Benefits</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Community</a>
+</div>
+<button class="bg-deep-contrast text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-80 transition-opacity duration-300 scale-95 active:scale-90 transition-transform">
+            Baixar App
+        </button>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[600px] flex items-center justify-center pt-20">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0 bg-deep-contrast">
+<img alt="Interactive Map" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtyE8mKSX7GDj1ib72dqglRFeLopbXTG4F8AuCZwlhv0pE1K0P7-dIxgH8riYApwvVGzbbeMWGxXXo-8X4Nl8_n1HsikFJfDezCSKjHC6TytxrWKRpAxdHXJzwjh863DPIV3YC65bpucGkRqjadqh-YLSJTRcwaWlYw-QhaI5MWsWn1YwGV8sss7WwG3cuO_49spKIjHuElI1ftI6eFg8jUkmrHPAb_AQ8YuJi9wJUTfIRR3AvKzWn_U7WRXRAoiEp7vmDXRDK7cQ">
+<div class="absolute inset-0 bg-gradient-to-t from-deep-contrast/90 via-deep-contrast/40 to-transparent"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-[800px] mx-auto flex flex-col items-center gap-8">
+<h1 class="font-display-lg text-display-lg text-white text-balance max-w-4xl">Todo o bairro Brasília em um só lugar: conecte-se com negócios, serviços e pessoas.</h1>
+<button class="bg-innovation-lime text-deep-contrast px-8 py-4 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity duration-300 scale-100 hover:scale-105 active:scale-95 shadow-lg">
+                    Abrir o App
+                </button>
+</div>
+</section>
+<!-- Section 1: Tudo o que o bairro oferece -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center">Tudo o que o bairro oferece</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
+<div class="w-12 h-12 rounded-full bg-soft-sky/30 flex items-center justify-center mb-6 text-electric-accent">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Encontros</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Conecte-se com pessoas próximas, participe de eventos locais e fortaleça os laços da comunidade.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
+<div class="w-12 h-12 rounded-full bg-innovation-lime/30 flex items-center justify-center mb-6 text-deep-contrast">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Avisos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Fique por dentro das novidades, alertas de segurança e comunicados importantes do bairro.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 ambient-glow border border-transparent hover:border-surface-variant transition-colors group">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed/50 flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Oportunidades</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Descubra negócios locais, serviços e oportunidades exclusivas dentro da nossa rede.</p>
+</div>
+</div>
+</section>
+<!-- Section 2: A informação não deveria se perder -->
+<section class="py-24 bg-off-white">
+<div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-8">A informação não deveria se perder</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Em um mundo hiperconectado, muitas vezes perdemos o contato com quem está mais perto. O Lá na Brasília nasceu para resgatar essa conexão local, organizando a vida do bairro de forma inteligente e acessível. Queremos transformar a maneira como moradores e comerciantes interagem, criando um ecossistema digital que fortalece o real.
+                </p>
+</div>
+</section>
+<!-- Section 3: Funcionalidades -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="mb-12 text-center md:text-left">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Funcionalidades</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Mapa Card -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+            <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0uiYqm84YPg7iPlI-afyNQm6_fv1zmlcMB8JIqoA5Nl46t1M229rAZbTaCVS9ohVr5QsU8iSeM6sTJlD88I2I1IAnJHsZUsv66GqkkXdLjwXaJk4l5Gexhxm8NK64Nk4_DC5hL5vybwpAWA5UthjhPIFzHdA7W4G290eu1oHJ_1PJzG_PwODvF4UGfITJWxZJJYnSJgQz46n03Iv_IWf0EaSwCQ8WZ0moQ4yt6ZFhukgc0Xp06eEpVOjPA" alt="Mapa" class="w-full h-full object-cover">
             </div>
-            <div class="map-card">
-              <span class="route route-one"></span>
-              <span class="route route-two"></span>
-              <span class="pin pin-one"></span>
-              <span class="pin pin-two"></span>
-              <span class="pin pin-three"></span>
+            <div class="p-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-electric-accent text-xl">map</span>
+                    <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Mapa</h3>
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant">Explore pontos de interesse e navegue pelo bairro.</p>
             </div>
-            <div class="mini-list">
-              <article>
-                <strong>Comércio local</strong>
-                <span>Aberto agora</span>
-              </article>
-              <article>
-                <strong>Mural do bairro</strong>
-                <span>Avisos e eventos</span>
-              </article>
-              <article>
-                <strong>Serviços perto</strong>
-                <span>Busca simples</span>
-              </article>
+        </div>
+
+        <!-- Catálogo Card -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+            <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0ui0qxU_nuEpT3etudwZYWjJPIQDPMICgdIH5mbwfnC7xpilinWMeLWJTDQQIUoAeMTNK7ZYf0kGtrTgTm2I6at0Qip_Hi7GkE7zVVr7AlibeYmlMzCCZUMNsIUSDCw9NWqC5uvpSIp63Vt17grjisVRmEDTdJJa4R3TEnKui6QQyMiO4PuwTu6DF83TyUXDyM2XA3SlJ0qH8RhohvUlPo5HcKfVRbgwn9zCNt4T5Y9PA3LiQ93vFv5v4-M" alt="Catálogo" class="w-full h-full object-cover">
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="snapshots" aria-label="O que acontece no bairro">
-        <article>
-          <span>01</span>
-          <h2>Comércio abrindo cedo.</h2>
-        </article>
-        <article>
-          <span>02</span>
-          <h2>Serviços indicados de boca em boca.</h2>
-        </article>
-        <article>
-          <span>03</span>
-          <h2>Avisos, encontros e oportunidades circulando.</h2>
-        </article>
-      </section>
-
-      <section class="section split" id="app">
-        <div>
-          <p class="eyebrow">O projeto</p>
-          <h2>Um lugar mais claro para o que já acontece no bairro.</h2>
-        </div>
-        <div class="text-stack">
-          <p>
-            No bairro, muita coisa acontece ao mesmo tempo. Mas nem sempre aparece
-            para quem precisa.
-          </p>
-          <p>
-            O Lá na Brasília organiza negócios, serviços, pontos de interesse,
-            avisos, classificados, eventos e vitrines digitais em uma experiência
-            feita para o cotidiano local.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="beneficios">
-        <div class="section-heading">
-          <p class="eyebrow">Funcionalidades</p>
-          <h2>Tecnologia útil, perto da vida real.</h2>
+            <div class="p-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-electric-accent text-xl">category</span>
+                    <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Catálogo</h3>
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant">Encontre rapidamente serviços e comércios locais.</p>
+            </div>
         </div>
 
-        <div class="feature-grid">
-          <article>
-            <h3>Mapa do bairro</h3>
-            <p>Negócios, serviços e pontos úteis organizados por localização.</p>
-          </article>
-          <article>
-            <h3>Catálogo local</h3>
-            <p>Empreendedores com apresentação bonita, prática e fácil de compartilhar.</p>
-          </article>
-          <article>
-            <h3>Mural comunitario</h3>
-            <p>Avisos, classificados, eventos e novidades em um espaço visível.</p>
-          </article>
-          <article>
-            <h3>Assistente digital</h3>
-            <p>Busca direta por informações e abertura para sugestões da comunidade.</p>
-          </article>
+        <!-- Mural Card -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+            <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0ugH5QN2nVITxkAnvt8ySaIu8IyUGSG9zVxnGukNvUeFO4a1msQbrQOTnvLNC_0u9LqM36JMzcJ2GNfWS8eCioj2ANUP8MEEFb6eH6YEmRrKZEj-sPWCr7ogYZuC-SqGOCX6SAMPkgRTgU3eEThtaMoQbWmzud3WvaFNrT2cFMPcocy-lGafMZZ_Gb9SzZgWng9A_FTv8tStVHcqnUvjHTnUx5V0fE5gHDtyjXPeV72VjCWdyZRujKLgsg" alt="Mural" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-electric-accent text-xl">dashboard</span>
+                    <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Mural</h3>
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant">Acompanhe as últimas publicações da comunidade.</p>
+            </div>
         </div>
-      </section>
 
-      <section class="section value-band">
-        <p class="eyebrow">Proposta de valor</p>
-        <h2>Aproximar o bairro de quem vive nele.</h2>
-        <div class="value-list">
-          <span>Dar visibilidade ao que já existe</span>
-          <span>Fortalecer o comércio local</span>
-          <span>Facilitar o dia a dia dos moradores</span>
-          <span>Transformar informação útil em pertencimento</span>
+        <!-- Assistente Card -->
+        <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 ambient-glow hover:shadow-md transition-shadow flex flex-col">
+            <div class="aspect-[4/5] w-full overflow-hidden bg-surface-dim">
+                <img src="https://lh3.googleusercontent.com/aida/ADBb0ujzMYXLpi1HrLtYKs7QVt9Jj3oxZZzOCa3bGyILmhFX40JMhkWLLRWBDeUQe9RRn38lcz6BSYpc5sLys9EC_bWQ5PI_SrUjcIm1UuoE-7C4p45SXtuLPCwYyPqkGZYp9Hx0Gb0e3eeacSQLwGez_PwMg26txtRd9yP5EJ3hWiEmAucOud2zWl7yhC1lYmYKzKjwvaXYCIyDT0O-XUf4xBEvEWBZ7xntNnhWrucq8r1eT68iyDWtb3KFqg" alt="Assistente AI" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-electric-accent text-xl">smart_toy</span>
+                    <h3 class="font-headline-md text-lg text-primary uppercase tracking-wider">Assistente</h3>
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant">Ajuda inteligente para encontrar o que você precisa.</p>
+            </div>
         </div>
-      </section>
-
-      <section class="section split" id="comunidade">
-        <div>
-          <p class="eyebrow">Comunidade</p>
-          <h2>Bairro não é só rua no mapa.</h2>
+    </div>
+</section>
+<!-- Section 4: Comunidade -->
+<section class="py-24 border-t border-surface-variant relative bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAEA_AqUX9xjfd2B3Dw5bYfkPxtPScUWT58lSrGu6DP-YnLdtyPQYc7oodRDZqRgD5LrTXQ0EB7aSTE8gX8vJJohfEbOfVgtcsNxRRSTd183lqH_trrE1dHbYIFwKzQvllCzPhpI5cCzLgI3PlgZoAr9W8bE38_kou10D-FTB_Z5VHWnHhZ_ycqoeSddLiuhQIyhJYqiD87PkYkD3mVn6_HFaVVlX0mm7ZT4Hs27E0swP0V51yW8w7WhEQMFskABp5VRz3Po0jjAwf_ig&quot;);"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
+    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-6">Comunidade</h2>
+    <p class="font-body-md text-body-md text-white/90 mb-8 max-w-2xl">
+        Mais do que um aplicativo, somos uma rede de apoio. Acreditamos que um bairro forte se constrói com moradores engajados. Junte-se a nós para compartilhar histórias, resolver problemas juntos e celebrar as conquistas da nossa comunidade.
+    </p>
+    <button class="bg-white text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-white/90 transition-colors shadow-lg">
+        Faça Parte
+    </button>
+</div></section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter max-w-container-max mx-auto bg-surface-container-lowest dark:bg-deep-contrast border-t border-surface-container-highest dark:border-outline-variant/20">
+<div class="font-display-lg text-headline-md text-primary dark:text-primary-fixed mb-6 md:mb-0">
+            Lá na Brasília
         </div>
-        <div class="text-stack">
-          <p>
-            É o caminho até a escola, o comércio conhecido, o serviço indicado,
-            o aviso compartilhado e a vida acontecendo perto de casa.
-          </p>
-          <p>
-            Quando essas conexões ficam mais visíveis, a comunidade fica mais forte:
-            o morador ganha praticidade, quem empreende constrói presença e o bairro
-            encontra uma nova forma de se reconhecer.
-          </p>
+<div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Privacidade</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Termos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Suporte</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-electric-accent transition-colors opacity-100 hover:opacity-80" href="#">Contato</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface dark:text-on-primary-fixed text-center md:text-right text-sm">
+            © 2024 Lá na Brasília. Comunidade e Inovação em Altamira.
         </div>
-      </section>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dots = document.querySelectorAll('.feature-dot');
+        const texts = document.querySelectorAll('.feature-text');
+        const imgs = document.querySelectorAll('.feature-img');
+        let currentIndex = 0;
+        const total = dots.length;
+        let interval;
 
-      <section class="closing">
-        <p>Lá na Brasília olha para o bairro de perto.</p>
-        <h2>Um bairro por vez. Com quem vive aqui.</h2>
-        <a class="button primary" href="https://app.lanabrasilia.com.br">Acessar o app</a>
-      </section>
-    </main>
+        function updateCarousel(index) {
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-surface-variant');
+                    dot.classList.add('bg-electric-accent');
+                } else {
+                    dot.classList.add('bg-surface-variant');
+                    dot.classList.remove('bg-electric-accent');
+                }
+            });
 
-    <footer>
-      <span>Lá na Brasília</span>
-      <span>Bairro Brasília, Altamira</span>
-    </footer>
-  </body>
-</html>
+            texts.forEach((text, i) => {
+                if (i === index) {
+                    text.classList.remove('opacity-0', 'z-0', 'pointer-events-none');
+                    text.classList.add('opacity-100', 'z-10');
+                } else {
+                    text.classList.add('opacity-0', 'z-0', 'pointer-events-none');
+                    text.classList.remove('opacity-100', 'z-10');
+                }
+            });
+
+            imgs.forEach((img, i) => {
+                if (i === index) {
+                    img.classList.remove('opacity-0', 'z-0');
+                    img.classList.add('opacity-100', 'z-10');
+                } else {
+                    img.classList.add('opacity-0', 'z-0');
+                    img.classList.remove('opacity-100', 'z-10');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % total;
+            updateCarousel(currentIndex);
+        }
+
+        function startCarousel() {
+            interval = setInterval(nextSlide, 4500);
+        }
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel(currentIndex);
+                clearInterval(interval);
+                startCarousel();
+            });
+        });
+
+        startCarousel();
+    });
+</script>
+
+
+
+
+</body></html>
