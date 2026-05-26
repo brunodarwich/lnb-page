@@ -34,13 +34,9 @@ module.exports = async (req, res) => {
     }
 
     // Verificar se as variáveis do Vercel KV estão conectadas.
-    // Se não estiverem, usamos um fallback temporário gracioso (ex: ambiente local ou aguardando conexão no painel da Vercel)
     if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
-      console.warn("AVISO: Vercel KV não está conectado/configurado no painel da Vercel. A inscrição foi simulada com sucesso.");
-      
-      return res.status(200).json({ 
-        success: true, 
-        message: 'Inscrição simulada com sucesso! (Aguardando conexão do banco de dados KV no painel da Vercel).' 
+      return res.status(503).json({ 
+        error: 'Serviço temporariamente indisponível: o banco de dados KV não está configurado na Vercel.' 
       });
     }
 
