@@ -110,7 +110,63 @@
         .ambient-glow {
             box-shadow: 0 10px 40px -10px rgba(0, 92, 186, 0.06);
         }
+        
+        /* Map Pin Bouncing Pop-in animation */
+        @keyframes pinBounce {
+            0% {
+                transform: scale(0) translateY(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) translateY(-12px);
+                opacity: 0.9;
+            }
+            75% {
+                transform: scale(0.95) translateY(2px);
+                opacity: 0.95;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .map-pin-animate {
+            animation: pinBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+        
+        /* Location pulse animation */
+        @keyframes locationPulse {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+        
+        .pulse-effect {
+            animation: locationPulse 2.2s infinite ease-out;
+        }
+
+        /* SVG street dash animation for a dynamic load feeling */
+        @keyframes drawStreet {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .animate-street {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawStreet 2.5s ease-out forwards;
+        }
     </style>
+    <!-- Leaflet Interactive Maps CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-innovation-lime selection:text-deep-contrast">
 <!-- TopNavBar Component -->
@@ -181,15 +237,244 @@
 </div>
 </div>
 </section>
-<!-- Section 2: A informação não deveria se perder -->
-<section class="py-24 bg-off-white">
-<div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-8">A informação não deveria se perder</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                    Em um mundo onde tudo parece estar distante e na internet, muitas vezes esquecemos de quem está bem ao nosso lado. O Lá na Brasília nasceu justamente para valorizar as conexões reais do nosso bairro, organizando comércios, serviços e avisos de forma muito simples e rápida. A gente quer ajudar vizinhos a se apoiarem e fazer a economia local crescer.
-                </p>
-</div>
+<!-- Section 2: Encontre e apoie quem faz o nosso bairro acontecer (Mockup e Funcionalidades) -->
+<section class="py-24 bg-white overflow-hidden relative">
+    <!-- Subtle soft background accent elements -->
+    <div class="absolute w-[600px] h-[600px] bg-soft-sky/10 rounded-full blur-[140px] -z-10 -top-48 -left-48 pointer-events-none"></div>
+    <div class="absolute w-[500px] h-[500px] bg-innovation-lime/5 rounded-full blur-[120px] -z-10 -bottom-32 -right-32 pointer-events-none"></div>
+
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-12">
+        <!-- Header Row (Badge + Title) -->
+        <div class="w-full max-w-4xl text-left space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-soft-sky/30 border border-soft-sky/40 text-secondary font-semibold text-xs uppercase tracking-wider">
+                <span class="material-symbols-outlined text-sm">local_mall</span>
+                Exclusivo do Bairro Brasília
+            </div>
+            
+            <h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary leading-[1.1] tracking-tight">
+                Encontre e apoie quem faz o nosso bairro acontecer
+            </h2>
+        </div>
+
+        <!-- Centered Mockup (50% smaller, tilted, transparent background) -->
+        <div class="w-full flex justify-center py-4 relative select-none">
+            <img src="app-mockup.png" alt="Mockup do Aplicativo Lá na Brasília" class="w-full max-w-[410px] h-auto object-contain select-none pointer-events-none drop-shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
+        </div>
+
+        <!-- Cards Row (Bottom, side-by-side, centered) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
+            <!-- Card 1: Fácil Navegação -->
+            <div class="flex items-start gap-4 bg-off-white p-6 rounded-[24px] border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-outline-variant/30 transition-all duration-300 group">
+                <div class="flex items-center justify-center p-3 rounded-2xl bg-electric-accent/10 border border-electric-accent/20 text-electric-accent group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl font-bold">search</span>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-primary text-lg mb-1">Fácil Navegação</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Busque por qualquer estabelecimento ou categoria com um clique.</p>
+                </div>
+            </div>
+            <!-- Card 2: Perto de Mim -->
+            <div class="flex items-start gap-4 bg-off-white p-6 rounded-[24px] border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-outline-variant/30 transition-all duration-300 group">
+                <div class="flex items-center justify-center p-3 rounded-2xl bg-[#E4F222]/35 border border-[#E4F222]/50 text-deep-contrast group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl font-bold">distance</span>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-primary text-lg mb-1">Perto de Mim</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Descubra restaurantes e serviços a poucos passos de você.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<!-- Section: O Mapa Interativo do Bairro (Mapeamento Fiel, Todos os Pins e Estatísticas) -->
+<section id="mapa-interativo" class="py-24 bg-white border-t border-b border-surface-variant/40 overflow-hidden relative">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-10">
+        
+        <!-- Header Row (Text above the map) -->
+        <div class="w-full max-w-4xl space-y-4">
+            <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight tracking-tight">
+                O Bairro Brasília mapeado por completo
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Apoiando quem está perto de você. Cada pin no mapa representa um estabelecimento local verificado de Altamira fortalecendo o seu negócio ou oferecendo um serviço indispensável de forma autônoma.
+            </p>
+        </div>
+        
+        <!-- Map Container Row (Full Width) -->
+        <div class="w-full relative h-[500px] sm:h-[600px] md:h-[650px] rounded-[32px] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border-2 border-outline-variant/20 overflow-hidden bg-slate-100 z-10">
+            <!-- Leaflet Map Container -->
+            <div id="map" class="w-full h-full"></div>
+        </div>
+
+        <!-- Statistics Row (Bottom, centered) -->
+        <div class="w-full flex justify-center mt-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl w-full">
+                
+                <!-- Stat 1 -->
+                <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-surface-variant transition-all duration-300">
+                    <div class="text-3xl font-extrabold text-[#EF4444] tracking-tight mb-1">
+                        479
+                    </div>
+                    <div class="font-semibold text-primary text-sm mb-1">
+                        Estabelecimentos
+                    </div>
+                    <p class="text-xs text-on-surface-variant leading-normal">
+                        Comércios e serviços reais cadastrados e ativos.
+                    </p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-md hover:border-surface-variant transition-all duration-300">
+                    <div class="text-3xl font-extrabold text-[#F59E0B] tracking-tight mb-1">
+                        190
+                    </div>
+                    <div class="font-semibold text-primary text-sm mb-1">
+                        Subcategorias
+                    </div>
+                    <p class="text-xs text-on-surface-variant leading-normal">
+                        Segmentações que vão de mercadinhos a técnicos.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Include Compressed Merchants Data (All 470 pins) -->
+    <script src="merchants_compressed.js"></script>
+
+    <!-- Interactive Leaflet Map Script -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // Geobounds for Bairro Brasília in Altamira
+            const minLat = -3.20022;
+            const maxLat = -3.19105;
+            const minLng = -52.22034;
+            const maxLng = -52.20893;
+            const latSpan = maxLat - minLat;
+            const lngSpan = maxLng - minLng;
+
+            // Center of Bairro Brasília
+            const centerLat = minLat + (latSpan / 2);
+            const centerLng = minLng + (lngSpan / 2);
+
+            // Initialize Leaflet Map (Completely static and fixed on Bairro Brasília coordinates)
+            const map = L.map('map', {
+                center: [centerLat, centerLng],
+                zoom: 16.2, // Tightly focused on Bairro Brasília
+                zoomControl: false,
+                dragging: false,
+                touchZoom: false,
+                doubleClickZoom: false,
+                scrollWheelZoom: false,
+                boxZoom: false,
+                keyboard: false,
+                attributionControl: false
+            });
+
+            // CartoDB Voyager Tiles (Beautiful soft-colored geographic maps matching lnb aesthetics)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19
+            }).addTo(map);
+
+            // 1. Plot all 470 merchants dynamically on real geographic coordinates
+            merchants.forEach((m, index) => {
+                // Convert percentage back to real coordinates
+                const lng = minLng + (m.x / 100) * lngSpan;
+                const lat = minLat + ((100 - m.y) / 100) * latSpan;
+
+                // Color and icon configurations
+                let color = '#EF4444'; // Red default
+                let iconName = 'store';
+
+                if (m.c === 'comercio') {
+                    color = '#F59E0B'; // Amber
+                    iconName = 'shopping_bag';
+                    if (m.s.includes('Açougue') || m.s.includes('Carne')) {
+                        color = '#D97706'; // Orange-brown
+                        iconName = 'restaurant';
+                    } else if (m.s.includes('Farmácia') || m.s.includes('Drogaria')) {
+                        color = '#EC4899'; // Pink
+                        iconName = 'medical_services';
+                    }
+                } else if (m.c === 'servico') {
+                    color = '#10B981'; // Emerald
+                    iconName = 'handyman';
+                    if (m.s.includes('Beleza') || m.s.includes('Salão') || m.s.includes('Hair') || m.s.includes('Studio')) {
+                        color = '#EC4899'; // Pink
+                        iconName = 'content_cut';
+                    } else if (m.s.includes('Saúde') || m.s.includes('Laboratório') || m.s.includes('médico') || m.s.includes('Clínica')) {
+                        color = '#06B6D4'; // Cyan
+                        iconName = 'medical_services';
+                    }
+                } else if (m.c === 'alimentacao') {
+                    color = '#EF4444'; // Red
+                    iconName = 'restaurant';
+                } else if (m.c === 'outros') {
+                    color = '#6366F1'; // Indigo
+                    iconName = 'church';
+                    if (m.s.includes('Polícia')) {
+                        color = '#1E3A8A'; // Dark Blue
+                        iconName = 'shield';
+                    } else if (m.s.includes('Escola') || m.s.includes('Educação') || m.s.includes('Ensino')) {
+                        color = '#4F46E5';
+                        iconName = 'school';
+                    }
+                }
+
+                // Create custom HTML marker using L.divIcon with a premium droplet pin shape
+                const icon = L.divIcon({
+                    className: 'custom-div-marker-container',
+                    html: `
+                        <div class="relative group flex flex-col items-center w-[20px] h-[25px] cursor-pointer hover:scale-125 transition-transform duration-200">
+                            <!-- Droplet SVG Background -->
+                            <svg viewBox="0 0 24 30" width="20" height="25" class="absolute inset-0">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 9.3 12 18 12 18s12-8.7 12-18c0-6.63-5.37-12-12-12z" fill="${color}" stroke="#FFFFFF" stroke-width="1.3" filter="drop-shadow(0px 1.5px 3px rgba(0,0,0,0.3))"/>
+                            </svg>
+                            <!-- White Category Icon Centered in the Pin Head -->
+                            <span class="material-symbols-outlined absolute top-[2.5px] text-white text-[10px] font-bold select-none">${iconName}</span>
+                            
+                            <!-- Tooltip popup on hover -->
+                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 bg-neutral-900/95 backdrop-blur-md text-white text-[10px] p-3 rounded-xl opacity-0 pointer-events-none group-hover:opacity-100 transition-all duration-300 shadow-2xl z-[9999] scale-[0.6] group-hover:scale-100 origin-bottom border border-white/10">
+                                <div class="font-bold text-white mb-0.5 text-xs truncate">${m.n}</div>
+                                <div class="text-neutral-400 text-[9px] flex justify-between gap-2"><span class="truncate">${m.s}</span><span class="shrink-0 font-medium">Rua ${m.st}</span></div>
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-neutral-900/95"></div>
+                            </div>
+                        </div>
+                    `,
+                    iconSize: [20, 25],
+                    iconAnchor: [10, 25] // Anchor exactly at the bottom point of the pin
+                });
+
+                L.marker([lat, lng], { icon: icon }).addTo(map);
+            });
+
+            // 2. Plot "Sua Localização" Marker matching app design
+            const userLng = minLng + (77.4 / 100) * lngSpan;
+            const userLat = minLat + ((100 - 55.9) / 100) * latSpan;
+
+            const userIcon = L.divIcon({
+                className: 'custom-user-marker-container',
+                html: `
+                    <div class="relative flex items-center justify-center w-[48px] h-[48px]">
+                        <!-- Pulse Rings -->
+                        <div class="absolute w-8 h-8 rounded-full bg-blue-500/30 pulse-effect"></div>
+                        <div class="absolute w-12 h-12 rounded-full bg-blue-500/15 pulse-effect" style="animation-delay: 0.7s;"></div>
+                        <!-- Core Dot -->
+                        <div class="relative w-3.5 h-3.5 rounded-full bg-blue-600 border-2 border-white shadow-md"></div>
+                    </div>
+                `,
+                iconSize: [48, 48],
+                iconAnchor: [24, 24]
+            });
+
+            L.marker([userLat, userLng], { icon: userIcon }).addTo(map);
+        });
+    </script>
+</section>
+
 <!-- Section 3: Funcionalidades -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <div class="mb-12 text-center md:text-left">
@@ -254,7 +539,7 @@
     </div>
 </section>
 <!-- Section 4: Comunidade -->
-<section id="comunidade" class="py-24 border-t border-surface-variant relative bg-cover bg-center" style="background-image: url('comunidade.png');"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
+<section id="comunidade" class="py-24 border-t border-surface-variant relative bg-cover bg-center" style="background-image: url('feira-bsb.jpeg');"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
     <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-6">Comunidade</h2>
     <p class="font-body-md text-body-md text-white/90 mb-8 max-w-2xl font-normal leading-relaxed">
         Mais do que tecnologia, o Lá na Brasília é sobre pessoas. Acreditamos que a força do nosso bairro vem da colaboração diária. Junte-se a nós para fazer a diferença, construir soluções conjuntas e celebrar tudo de bom que a nossa vizinhança tem.
