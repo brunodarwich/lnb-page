@@ -6,12 +6,40 @@
   };
 </script>
 
-<!-- 2. Inicialização do Google Consent Mode v2 (LGPD Privacy by Default) -->
+<!-- 2. Inicialização do Google Consent Mode v2 & Carregamento Dinâmico (LGPD Strict Default) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
 
-  // Carrega consentimento prévio se existir no localStorage
+  // Função para carregar dinamicamente o script do Google Analytics apenas se houver consentimento
+  function loadGoogleAnalytics(analyticsGranted, marketingGranted) {
+    const gaId = window.APP_CONFIG.GA_MEASUREMENT_ID;
+    if (!gaId || gaId === "G-XXXXXXXXXX") return;
+
+    // Atualiza o estado de consentimento antes de carregar o script
+    gtag('consent', 'update', {
+      'analytics_storage': analyticsGranted ? 'granted' : 'denied',
+      'ad_storage': marketingGranted ? 'granted' : 'denied',
+      'ad_user_data': marketingGranted ? 'granted' : 'denied',
+      'ad_personalization': marketingGranted ? 'granted' : 'denied'
+    });
+
+    // Se o consentimento de analytics foi concedido, carrega o script de forma dinâmica
+    if (analyticsGranted && !document.getElementById('gtag-script')) {
+      const script = document.createElement('script');
+      script.id = 'gtag-script';
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+      document.head.appendChild(script);
+
+      script.onload = () => {
+        gtag('js', new Date());
+        gtag('config', gaId, { 'anonymize_ip': true });
+      };
+    }
+  }
+
+  // Define os valores padrão iniciais (Totalmente restrito sob a LGPD - Privacy by Default)
   const savedConsent = JSON.parse(localStorage.getItem('cookie_consent'));
 
   if (savedConsent) {
@@ -22,8 +50,12 @@
       'ad_personalization': savedConsent.marketing ? 'granted' : 'denied',
       'wait_for_update': 500
     });
+    // Se já havia consentimento analítico, carrega o script imediatamente
+    if (savedConsent.analytics) {
+      loadGoogleAnalytics(true, savedConsent.marketing);
+    }
   } else {
-    // LGPD Padrão Estrito - Bloqueado por padrão (Privacy by Default)
+    // LGPD Estrito por Padrão: Tudo negado inicialmente e nenhum script carregado
     gtag('consent', 'default', {
       'analytics_storage': 'denied',
       'ad_storage': 'denied',
@@ -31,16 +63,6 @@
       'ad_personalization': 'denied',
       'wait_for_update': 500
     });
-  }
-</script>
-
-<!-- 3. Carregamento Assíncrono do Google Analytics (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  const gaId = window.APP_CONFIG.GA_MEASUREMENT_ID;
-  if (gaId && gaId !== "G-XXXXXXXXXX") {
-    gtag('js', new Date());
-    gtag('config', gaId, { 'anonymize_ip': true }); // Anonimização de IP
   }
 </script>
 
@@ -384,14 +406,9 @@
       const consentObject = { analytics, marketing };
       localStorage.setItem('cookie_consent', JSON.stringify(consentObject));
 
-      // Atualiza o estado no Google Consent Mode v2 API
-      if (window.gtag) {
-        gtag('consent', 'update', {
-          'analytics_storage': analytics ? 'granted' : 'denied',
-          'ad_storage': marketing ? 'granted' : 'denied',
-          'ad_user_data': marketing ? 'granted' : 'denied',
-          'ad_personalization': marketing ? 'granted' : 'denied'
-        });
+      // Dispara o carregamento dinâmico/atualização conforme escolhas do usuário
+      if (typeof loadGoogleAnalytics === 'function') {
+        loadGoogleAnalytics(analytics, marketing);
       }
 
       hideBanner();
