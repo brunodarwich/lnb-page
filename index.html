@@ -587,6 +587,19 @@
             });
 
             L.marker([userLat, userLng], { icon: userIcon }).addTo(map);
+
+            // Indestructible fix for Leaflet rendering bugs on mobile during CSS transitions and animations
+            if ('ResizeObserver' in window) {
+                const resizeObserver = new ResizeObserver(() => {
+                    map.invalidateSize();
+                });
+                resizeObserver.observe(document.getElementById('map'));
+            }
+
+            // Fallback delayed layout updates to ensure correct tiling under all mobile loading conditions
+            setTimeout(() => { map.invalidateSize(); }, 400);
+            setTimeout(() => { map.invalidateSize(); }, 800);
+            setTimeout(() => { map.invalidateSize(); }, 1500);
         });
     </script>
 </section>
