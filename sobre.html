@@ -125,10 +125,9 @@
 </span>
 </nav>
 
-<main class="pt-24 pb-24 px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto">
-    <!-- Hero Banner with Background Image and Dark Overlay -->
-    <div class="relative overflow-hidden rounded-3xl shadow-xl min-h-[480px] flex items-center justify-center text-center p-8 md:p-12 mb-12 bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('img-sobre.jpeg');">
-        <div class="max-w-3xl space-y-6 text-white text-justify">
+    <!-- Hero Banner with Background Image and Dark Overlay (Full Width) -->
+    <div class="relative overflow-hidden w-full min-h-[500px] flex items-center justify-center text-center px-4 py-32 bg-cover bg-center border-b border-outline-variant/10 shadow-md" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('img-sobre.jpeg');">
+        <div class="max-w-3xl mx-auto space-y-6 text-white">
             <h1 class="font-display-lg text-4xl md:text-5xl font-extrabold tracking-tight text-center">Sobre o Lá na Brasília</h1>
             <p class="text-xl md:text-2xl font-semibold text-secondary-fixed-dim text-center">
                 Um ponto de encontro e fortalecimento para o bairro Brasília, em Altamira.
@@ -139,8 +138,9 @@
         </div>
     </div>
 
+<main class="py-16 px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto">
     <!-- Centered Highlight Line -->
-    <div class="max-w-4xl mx-auto text-center my-16 px-4">
+    <div class="max-w-4xl mx-auto text-center mb-16 px-4">
         <p class="font-display-lg text-2xl md:text-3xl text-secondary dark:text-secondary-fixed-dim font-bold leading-relaxed">
             O Lá na Brasília organiza e distribui essa energia e informação em um espaço digital simples e acessível.
         </p>
@@ -206,9 +206,21 @@
         <p class="text-body-lg text-on-surface-variant leading-relaxed text-justify">
             Estamos finalizando alguns ajustes e detalhes com muito carinho. O aplicativo oficial será lançado no dia <strong>8 de Agosto de 2026</strong>.
         </p>
-        <p class="text-body-lg text-primary font-semibold leading-relaxed text-justify">
-            Se você mora ou tem um negócio no bairro Brasília, faça parte deste movimento! Cadastre-se na nossa página inicial para receber um aviso no dia do lançamento.
-        </p>
+        <div class="space-y-4 text-center">
+            <p class="text-body-lg text-primary font-semibold leading-relaxed text-center">
+                Se você mora ou tem um negócio no bairro Brasília, faça parte deste movimento! Cadastre-se abaixo para receber um aviso no dia do lançamento:
+            </p>
+            <!-- Pre-launch Email Form -->
+            <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md bg-white/40 dark:bg-primary-container/40 p-2 rounded-2xl border border-secondary/20 shadow-sm mx-auto" aria-describedby="prelaunch-form-notice">
+                <input type="email" id="subscriber-email" placeholder="Digite seu melhor e-mail" class="w-full bg-transparent text-primary dark:text-white placeholder-neutral-500 dark:placeholder-white/60 px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-secondary focus:outline-none" required>
+                <button type="submit" id="subscribe-btn" class="motion-button w-full sm:w-auto whitespace-nowrap bg-secondary text-white px-6 py-3 rounded-xl font-label-md text-label-md hover:bg-secondary/90 font-bold flex items-center justify-center gap-2 transition-all">
+                    Me avise!
+                </button>
+            </form>
+            <p id="prelaunch-form-notice" class="text-on-surface-variant/70 text-xs max-w-md mx-auto text-center">
+                Ao enviar, você concorda em receber novidades sobre o lançamento. Seus dados estão seguros e protegidos de acordo com a LGPD.
+            </p>
+        </div>
     </div>
 
     <hr class="border-t border-outline-variant/20 my-16" />
@@ -265,4 +277,52 @@
             © 2026 Lá na Brasília. Comunidade e Inovação em Altamira.
         </div>
 </footer>
+<script>
+    async function handleSubscribe(event) {
+        event.preventDefault();
+        const emailInput = document.getElementById('subscriber-email');
+        const btn = document.getElementById('subscribe-btn');
+        const notice = document.getElementById('prelaunch-form-notice');
+        
+        if (!emailInput || !emailInput.value) return;
+        
+        const originalBtnHTML = btn.innerHTML;
+        
+        try {
+            btn.disabled = true;
+            btn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Enviando...`;
+            
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: emailInput.value })
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                // Sucesso
+                emailInput.value = '';
+                btn.className = btn.className.replace('bg-secondary', 'bg-emerald-600 text-white');
+                btn.innerHTML = `<span class="material-symbols-outlined text-sm font-bold">check_circle</span> Pronto!`;
+                
+                notice.className = "text-emerald-600 dark:text-emerald-400 font-semibold text-xs max-w-md mt-2";
+                notice.innerText = result.message || "Inscrição realizada com sucesso! Seus dados estão protegidos conosco.";
+            } else {
+                // Erro do backend
+                throw new Error(result.error || 'Erro na inscrição');
+            }
+            
+        } catch (error) {
+            console.error('Subscription error:', error);
+            btn.disabled = false;
+            btn.innerHTML = originalBtnHTML;
+            
+            notice.className = "text-red-600 dark:text-red-400 font-semibold text-xs max-w-md mt-2";
+            notice.innerText = error.message || "Erro de conexão. Tente novamente mais tarde.";
+        }
+    }
+</script>
 </body></html>
