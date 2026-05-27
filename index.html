@@ -275,6 +275,14 @@
                 pointer-events: none;
             }
         }
+
+        /* Prevent Tailwind preflight from overriding Leaflet map tile dimensions and custom SVGs */
+        .leaflet-container img {
+            max-width: none !important;
+        }
+        .leaflet-container svg {
+            max-width: none !important;
+        }
     </style>
     <!-- Leaflet Interactive Maps CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -417,7 +425,7 @@
         </div>
         
         <!-- Map Container Row (Full Width) -->
-        <div class="motion-reveal motion-delay-2 w-full relative h-[500px] sm:h-[600px] md:h-[650px] rounded-[32px] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border-2 border-outline-variant/20 overflow-hidden bg-slate-100 z-10">
+        <div class="w-full relative h-[500px] sm:h-[600px] md:h-[650px] rounded-[32px] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border-2 border-outline-variant/20 overflow-hidden bg-slate-100 z-10">
             <!-- Leaflet Map Container -->
             <div id="map" class="w-full h-full"></div>
         </div>
