@@ -283,6 +283,21 @@
         .leaflet-container svg {
             max-width: none !important;
         }
+
+        /* Static heights to prevent Leaflet race conditions with Tailwind's runtime CDN */
+        .map-wrapper-fixed {
+            height: 500px !important;
+        }
+        @media (min-width: 640px) {
+            .map-wrapper-fixed {
+                height: 600px !important;
+            }
+        }
+        @media (min-width: 768px) {
+            .map-wrapper-fixed {
+                height: 650px !important;
+            }
+        }
     </style>
     <!-- Leaflet Interactive Maps CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -425,9 +440,9 @@
         </div>
         
         <!-- Map Container Row (Full Width) -->
-        <div class="w-full relative h-[500px] sm:h-[600px] md:h-[650px] rounded-[32px] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border-2 border-outline-variant/20 overflow-hidden bg-slate-100 z-10">
+        <div class="map-wrapper-fixed w-full relative rounded-[32px] shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] border-2 border-outline-variant/20 overflow-hidden bg-slate-100 z-10">
             <!-- Leaflet Map Container -->
-            <div id="map" class="w-full h-full"></div>
+            <div id="map" class="w-full h-full" style="height: 100%; width: 100%;"></div>
         </div>
 
         <!-- Statistics Row (Bottom, centered) -->
