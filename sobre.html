@@ -125,56 +125,130 @@
 </span>
 </nav>
 
-<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto">
-    <h1 class="font-display-lg text-display-lg text-primary mb-8">Sobre o Lá na Brasília</h1>
+<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto">
+    <h1 class="font-display-lg text-display-lg text-primary mb-2">Sobre o Lá na Brasília</h1>
+    <p class="font-semibold text-secondary dark:text-secondary-fixed-dim text-xl md:text-2xl mb-12">
+        Um ponto de encontro e fortalecimento para o bairro Brasília, em Altamira.
+    </p>
     
-    <div class="space-y-6 text-body-lg text-on-surface-variant leading-relaxed text-justify">
-        <p class="font-semibold text-primary text-xl">
-            Um ponto de encontro e fortalecimento para o bairro Brasília, em Altamira.
-        </p>
-        
-        <p>
-            No dia a dia do nosso bairro, muitas dinâmicas acontecem ao mesmo tempo. Temos o comércio que abre bem cedinho, o prestador de serviços que todo mundo indica, os avisos rápidos que passam de boca em boca e as oportunidades que surgem. Mas, nem sempre essa informação chega a quem realmente precisa na hora certa.
-        </p>
-        
-        <p>
-            O Lá na Brasília organiza e distribui essa energia e informação em um espaço digital simples e acessível.
-        </p>
+    <!-- Intro Section with Text and Image -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+        <div class="lg:col-span-7 space-y-6 text-body-lg text-on-surface-variant leading-relaxed text-justify">
+            <p>
+                No dia a dia do nosso bairro, muitas dinâmicas acontecem ao mesmo tempo. Temos o comércio que abre bem cedinho, o prestador de serviços que todo mundo indica, os avisos rápidos que passam de boca em boca e as oportunidades que surgem. Mas, nem sempre essa informação chega a quem realmente precisa na hora certa.
+            </p>
+            <p class="border-l-4 border-secondary/40 pl-4 italic text-primary/80">
+                O Lá na Brasília organiza e distribui essa energia e informação em um espaço digital simples e acessível.
+            </p>
+        </div>
+        <div class="lg:col-span-5 relative group">
+            <div class="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-transparent rounded-2xl filter blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative overflow-hidden rounded-2xl border border-outline-variant/30 shadow-lg aspect-[4/3] bg-surface-container">
+                <img src="img-sobre.jpeg" alt="Amanhecer no bairro Brasília" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <p class="text-xs text-on-surface-variant/60 mt-2 text-center italic">Rua do bairro Brasília ao amanhecer</p>
+        </div>
+    </div>
 
-        <p>
-            A proposta é focada na nossa comunidade. Através de um aplicativo leve para o celular, os moradores poderão:
-        </p>
-        
-        <ul class="list-disc pl-6 space-y-3">
-            <li><strong>Ver o bairro em um mapa vivo:</strong> Encontrar rapidamente o comércio da esquina, a farmácia, a padaria e saber o que está aberto agora.</li>
-            <li><strong>Valorizar quem empreende:</strong> Um catálogo completo para que pequenos comércios e profissionais locais (como cabeleireiros, pedreiros e costureiras) tenham uma vitrine bonita e profissional.</li>
-            <li><strong>Acompanhar avisos da vizinhança:</strong> Eventos, classificados simples, achados e perdidos e comunicados comunitários importantes.</li>
-            <li><strong>Usar o Assistente Inteligente:</strong> Um assistente digital amigável para ajudar você a encontrar o produto ou serviço que procura no bairro em segundos.</li>
-        </ul>
+    <!-- Features Section -->
+    <div class="mb-16">
+        <div class="p-6 bg-surface-container-low rounded-2xl border border-outline-variant/10 mb-8">
+            <p class="text-body-lg text-primary font-medium leading-relaxed">
+                A proposta é focada na nossa comunidade. Através de um aplicativo leve para o celular, os moradores poderão:
+            </p>
+        </div>
 
-        <p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Feature 1 -->
+            <div class="p-6 bg-surface-container-lowest dark:bg-primary-container rounded-2xl border border-outline-variant/20 hover:border-secondary/40 hover:shadow-md transition-all duration-300 flex gap-4 group">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center text-secondary dark:text-secondary-fixed-dim group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-2xl">map</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-semibold text-primary text-base">Ver o bairro em um mapa vivo</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed text-justify">Encontrar rapidamente o comércio da esquina, a farmácia, a padaria e saber o que está aberto agora.</p>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="p-6 bg-surface-container-lowest dark:bg-primary-container rounded-2xl border border-outline-variant/20 hover:border-secondary/40 hover:shadow-md transition-all duration-300 flex gap-4 group">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center text-secondary dark:text-secondary-fixed-dim group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-2xl">storefront</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-semibold text-primary text-base">Valorizar quem empreende</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed text-justify">Um catálogo completo para que pequenos comércios e profissionais locais (como cabeleireiros, pedreiros e costureiras) tenham uma vitrine bonita e profissional.</p>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="p-6 bg-surface-container-lowest dark:bg-primary-container rounded-2xl border border-outline-variant/20 hover:border-secondary/40 hover:shadow-md transition-all duration-300 flex gap-4 group">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center text-secondary dark:text-secondary-fixed-dim group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-2xl">campaign</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-semibold text-primary text-base">Acompanhar avisos da vizinhança</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed text-justify">Eventos, classificados simples, achados e perdidos e comunicados comunitários importantes.</p>
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="p-6 bg-surface-container-lowest dark:bg-primary-container rounded-2xl border border-outline-variant/20 hover:border-secondary/40 hover:shadow-md transition-all duration-300 flex gap-4 group">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center text-secondary dark:text-secondary-fixed-dim group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-2xl">smart_toy</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-semibold text-primary text-base">Usar o Assistente Inteligente</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed text-justify">Um assistente digital amigável para ajudar você a encontrar o produto ou serviço que procura no bairro em segundos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action & Launch -->
+    <div class="p-8 bg-gradient-to-br from-secondary/5 to-secondary/10 dark:from-secondary-container/5 dark:to-secondary-container/10 border border-secondary/20 rounded-2xl mb-16 space-y-6">
+        <p class="text-body-lg text-on-surface-variant leading-relaxed text-justify">
             Estamos finalizando alguns ajustes e detalhes com muito carinho. O aplicativo oficial será lançado no dia <strong>8 de Agosto de 2026</strong>.
         </p>
-        
-        <p>
+        <p class="text-body-lg text-primary font-semibold leading-relaxed text-justify">
             Se você mora ou tem um negócio no bairro Brasília, faça parte deste movimento! Cadastre-se na nossa página inicial para receber um aviso no dia do lançamento.
         </p>
+    </div>
 
-        <hr class="border-t border-outline-variant/20 my-12" />
+    <hr class="border-t border-outline-variant/20 my-16" />
 
-        <h2 class="font-display-lg text-headline-md text-primary mb-6">Quem idealizou?</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-sm text-on-surface-variant">
-            <div class="space-y-2">
-                <h3 class="font-semibold text-primary text-base">Bruno Darwich</h3>
-                <p class="leading-relaxed text-sm text-justify">
-                    Empreendedor e desenhista, com atuação em inovação, consultoria e modelagem de negócios no Sebrae, trabalha como engenheiro de agentes de inteligência artificial.
-                </p>
+    <!-- Team Section -->
+    <div>
+        <h2 class="font-display-lg text-headline-md text-primary mb-8 text-center">Quem idealizou?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Bruno -->
+            <div class="p-6 bg-surface-container-low rounded-2xl border border-outline-variant/15 hover:border-secondary/20 hover:shadow-sm transition-all duration-300 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center text-secondary dark:text-secondary-fixed-dim">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        <h3 class="font-semibold text-primary text-lg">Bruno Darwich</h3>
+                    </div>
+                    <p class="leading-relaxed text-sm text-on-surface-variant text-justify">
+                        Empreendedor e desenhista, com atuação em inovação, consultoria e modelagem de negócios no Sebrae, trabalha como engenheiro de agentes de inteligência artificial.
+                    </p>
+                </div>
             </div>
-            <div class="space-y-2">
-                <h3 class="font-semibold text-primary text-base">Raíssa Rocha</h3>
-                <p class="leading-relaxed text-sm text-justify">
-                    Nascida no bairro Brasília, é economista, doutoranda em Desenvolvimento econômico, território e meio ambiente (UFPA) e trabalha com análise de dados, dedicando suas pesquisas em complexidade, redes e economia de bairros.
-                </p>
+            
+            <!-- Raíssa -->
+            <div class="p-6 bg-surface-container-low rounded-2xl border border-outline-variant/15 hover:border-secondary/20 hover:shadow-sm transition-all duration-300 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center text-secondary dark:text-secondary-fixed-dim">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        <h3 class="font-semibold text-primary text-lg">Raíssa Rocha</h3>
+                    </div>
+                    <p class="leading-relaxed text-sm text-on-surface-variant text-justify">
+                        Nascida no bairro Brasília, é economista, doutoranda em Desenvolvimento econômico, território e meio ambiente (UFPA) e trabalha com análise de dados, dedicando suas pesquisas em complexidade, redes e economia de bairros.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
