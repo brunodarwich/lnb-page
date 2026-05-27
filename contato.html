@@ -125,61 +125,48 @@
 </span>
 </nav>
 
-<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-    <!-- Left Column: Form -->
-    <div>
-        <h1 class="font-display-lg text-display-lg text-primary mb-4">Contato</h1>
-        <p class="text-body-lg text-on-surface-variant mb-8">Tem dúvidas, sugestões ou quer colocar seu comércio no catálogo? Fale com a gente pelo WhatsApp!</p>
-
-        <div class="bg-white dark:bg-primary-container rounded-2xl border border-outline-variant/30 p-8 shadow-sm space-y-6">
-            <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-full bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-7 h-7 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                </div>
+<!-- Main Content Wrapper with Full Width Background Image -->
+    <div class="relative min-h-[calc(100vh-80px)] w-full flex items-center justify-center bg-cover bg-center pt-28 pb-16" style="background-image: linear-gradient(rgba(8, 9, 10, 0.8), rgba(8, 9, 10, 0.8)), url('img-contato.jpeg');">
+        <main class="relative z-10 max-w-4xl mx-auto w-full px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-12 text-white">
+            <!-- Left Column: Form & Info -->
+            <div class="space-y-8">
                 <div>
-                    <p class="font-semibold text-primary text-lg">WhatsApp</p>
-                    <p class="text-on-surface-variant text-sm">(91) 99161-2906</p>
+                    <h1 class="font-display-lg text-display-lg text-white mb-4">Contato</h1>
+                    <p class="text-body-lg text-neutral-300">Tem dúvidas, sugestões ou quer colocar seu comércio no catálogo? Fale com a gente!</p>
+                </div>
+        
+                <!-- Channels Card -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 shadow-lg space-y-6">
+                    <h2 class="font-display-lg text-headline-md text-white">Canais de Atendimento</h2>
+                    <div class="space-y-4 text-body-md">
+                        <p class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-secondary-fixed-dim">mail</span>
+                            <a href="mailto:pontoatm@gmail.com" class="hover:text-secondary-fixed-dim transition-colors text-white font-medium">pontoatm@gmail.com</a>
+                        </p>
+                        <p class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-secondary-fixed-dim">location_on</span>
+                            <span class="text-neutral-200">Bairro Brasília, Altamira - PA</span>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <p class="text-body-md text-on-surface-variant">Converse diretamente com a equipe do projeto. Responderemos o mais rápido possível!</p>
-            <a href="https://wa.me/5591991612906?text=Ol%C3%A1%2C%20vim%20pelo%20site%20L%C3%A1%20na%20Bras%C3%ADlia%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto!" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-4 rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Conversar no WhatsApp
-            </a>
-        </div>
+        
+            <!-- Right Column: FAQs -->
+            <div class="space-y-8 bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+                <h2 class="font-display-lg text-headline-md text-white mb-6">Perguntas Frequentes</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-white text-base mb-2">O aplicativo é gratuito?</h3>
+                        <p class="text-sm text-neutral-300 leading-relaxed">Sim! O aplicativo será totalmente gratuito para todos os moradores pesquisarem e interagirem com o bairro.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white text-base mb-2">Como coloco minha loja no app?</h3>
+                        <p class="text-sm text-neutral-300 leading-relaxed">Mande um e-mail para a nossa equipe com os dados do seu negócio. Vamos te ajudar a criar uma vitrine linda para o lançamento!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-
-    <!-- Right Column: Info & FAQs -->
-    <div class="space-y-8">
-        <div>
-            <h2 class="font-display-lg text-headline-md text-primary mb-4">Outros Canais</h2>
-            <div class="space-y-3 text-body-md text-on-surface-variant">
-                <p class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-secondary">mail</span>
-                    <a href="mailto:pontoatm@gmail.com" class="hover:text-secondary transition-colors">pontoatm@gmail.com</a>
-                </p>
-                <p class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-secondary">location_on</span>
-                    <span>Bairro Brasília, Altamira - PA</span>
-                </p>
-            </div>
-        </div>
-
-        <div class="border-t border-outline-variant/30 pt-8">
-            <h2 class="font-display-lg text-headline-md text-primary mb-6">Perguntas Frequentes</h2>
-            <div class="space-y-6">
-                <div>
-                    <h3 class="font-semibold text-primary mb-2">O aplicativo é gratuito?</h3>
-                    <p class="text-body-md text-on-surface-variant">Sim! O aplicativo será totalmente gratuito para todos os moradores pesquisarem e interagirem com o bairro.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-primary mb-2">Como coloco minha loja no app?</h3>
-                    <p class="text-body-md text-on-surface-variant">Mande uma mensagem pelo WhatsApp com os dados do seu negócio. Vamos te ajudar a criar uma vitrine linda para o lançamento!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
 
 <!-- Footer Component -->
 <footer class="w-full py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter max-w-container-max mx-auto bg-surface-container-lowest dark:bg-deep-contrast border-t border-surface-container-highest dark:border-outline-variant/20">
