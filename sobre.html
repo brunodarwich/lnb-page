@@ -174,6 +174,58 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
+        /* ==========================================================================
+           PADRÃO DE RESPONSIVIDADE: Imagens de fundo adaptativas (Celular Horizontal/Vertical)
+           ========================================================================== */
+        .bg-adaptativo {
+            /* Garante preenchimento total do espaço disponível */
+            width: 100%;
+            
+            /* Evita que a imagem mude de proporção (não estica, não achata) */
+            background-size: cover;
+            
+            /* Mantém o foco principal da foto sempre no centro da tela */
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+            /* Altura adaptativa: calcula com base na altura da tela do usuário */
+            min-height: 70vh; 
+        }
+
+        /* Ajuste fino opcional: Se a tela for muito baixa (celular deitado muito fino) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .bg-adaptativo {
+                min-height: 85vh; /* Dá um pouco mais de folga vertical para o conteúdo */
+            }
+        }
+
+        /* Ajustes finos para celular deitado (Landscape Mobile) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            /* TopNavBar compacta */
+            nav.fixed.top-0 {
+                height: 3.5rem !important; /* 56px instead of 80px */
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Nome do app menor */
+            nav.fixed.top-0 a.font-display-lg {
+                font-size: 1.1rem !important;
+            }
+            
+            /* Selo de lançamento compacto e em uma linha */
+            nav.fixed.top-0 span.rounded-full {
+                padding: 0.25rem 0.75rem !important;
+                font-size: 0.72rem !important;
+                white-space: nowrap !important;
+            }
+        }
+
+        /* Selo de lançamento garantido em uma linha em todas as telas */
+        nav.fixed.top-0 span.rounded-full {
+            white-space: nowrap !important;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-innovation-lime selection:text-deep-contrast">
@@ -193,7 +245,7 @@
 </nav>
 
     <!-- Hero Banner with Background Image and Dark Overlay (Full Width) -->
-    <div class="relative overflow-hidden w-full min-h-[500px] flex items-center justify-center text-center px-4 py-32 bg-cover bg-center border-b border-outline-variant/10 shadow-md" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('img-sobre.jpeg');">
+    <div class="relative overflow-hidden w-full min-h-[500px] flex items-center justify-center text-center px-4 py-32 bg-cover bg-center border-b border-outline-variant/10 shadow-md bg-adaptativo" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('img-sobre.jpeg');">
         <div class="max-w-3xl mx-auto space-y-6 text-white">
             <h1 class="font-display-lg text-4xl md:text-5xl font-extrabold tracking-tight text-center">Sobre o Lá na Brasília</h1>
             <p class="text-xl md:text-2xl font-semibold text-secondary-fixed-dim text-center">

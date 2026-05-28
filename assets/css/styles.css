@@ -437,3 +437,30 @@ footer {
     gap: 8px;
   }
 }
+
+/* ==========================================================================
+   PADRÃO DE RESPONSIVIDADE: Imagens de fundo adaptativas (Celular Horizontal/Vertical)
+   ========================================================================== */
+
+.bg-adaptativo {
+    /* Garante preenchimento total do espaço disponível */
+    width: 100%;
+    
+    /* Evita que a imagem mude de proporção (não estica, não achata) */
+    background-size: cover;
+    
+    /* Mantém o foco principal da foto sempre no centro da tela */
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* Altura adaptativa: calcula com base na altura da tela do usuário */
+    min-height: 70vh; 
+}
+
+/* Ajuste fino opcional: Se a tela for muito baixa (celular deitado muito fino) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .bg-adaptativo {
+        min-height: 85vh; /* Dá um pouco mais de folga vertical para o conteúdo */
+    }
+}
+

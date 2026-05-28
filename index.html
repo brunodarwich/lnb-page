@@ -365,6 +365,107 @@
                 height: 650px !important;
             }
         }
+
+        /* ==========================================================================
+           PADRÃO DE RESPONSIVIDADE: Imagens de fundo adaptativas (Celular Horizontal/Vertical)
+           ========================================================================== */
+        .bg-adaptativo {
+            /* Garante preenchimento total do espaço disponível */
+            width: 100%;
+            
+            /* Evita que a imagem mude de proporção (não estica, não achata) */
+            background-size: cover;
+            
+            /* Mantém o foco principal da foto sempre no centro da tela */
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+            /* Altura adaptativa: calcula com base na altura da tela do usuário */
+            min-height: 70vh; 
+        }
+
+        /* Ajuste fino opcional: Se a tela for muito baixa (celular deitado muito fino) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .bg-adaptativo {
+                min-height: 85vh; /* Dá um pouco mais de folga vertical para o conteúdo */
+            }
+        }
+
+        /* Ajustes finos para celular deitado (Landscape Mobile) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            /* TopNavBar compacta */
+            nav.fixed.top-0 {
+                height: 3.5rem !important; /* 56px instead of 80px */
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Nome do app menor */
+            nav.fixed.top-0 a.font-display-lg {
+                font-size: 1.1rem !important;
+            }
+            
+            /* Selo de lançamento compacto e em uma linha */
+            nav.fixed.top-0 span.rounded-full {
+                padding: 0.25rem 0.75rem !important;
+                font-size: 0.72rem !important;
+                white-space: nowrap !important;
+            }
+
+            /* Ajuste da Hero para caber na tela inteira */
+            section.relative.h-screen {
+                min-height: 0 !important;
+                height: 100vh !important;
+                padding-top: 3.5rem !important; /* acompanha navbar */
+            }
+
+            /* Conteúdo da Hero compactado */
+            section.relative.h-screen .relative.z-10 {
+                padding: 1rem 1.5rem !important;
+                gap: 0.5rem !important;
+                max-width: 620px !important;
+            }
+
+            section.relative.h-screen h1 {
+                font-size: 1.35rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 0 !important;
+            }
+
+            section.relative.h-screen p {
+                font-size: 0.85rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 0 !important;
+            }
+
+            section.relative.h-screen form {
+                padding: 0.25rem !important;
+                border-radius: 1rem !important;
+            }
+
+            section.relative.h-screen form input {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                font-size: 0.85rem !important;
+            }
+
+            section.relative.h-screen form button {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                font-size: 0.85rem !important;
+            }
+            
+            /* Esconder o segundo texto extra na horizontal para economizar espaço */
+            section.relative.h-screen p.text-xs,
+            section.relative.h-screen p.text-sm {
+                display: none !important;
+            }
+        }
+
+        /* Selo de lançamento garantido em uma linha em todas as telas */
+        nav.fixed.top-0 span.rounded-full {
+            white-space: nowrap !important;
+        }
     </style>
     <!-- Leaflet Interactive Maps CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -758,7 +859,7 @@
     </div>
 </section>
 <!-- Section 4: Comunidade -->
-<section id="comunidade" class="py-24 border-t border-surface-variant relative bg-cover bg-center" style="background-image: url('assets/images/feira-bsb.jpeg');"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
+<section id="comunidade" class="py-24 border-t border-surface-variant relative bg-cover bg-center bg-adaptativo" style="background-image: url('assets/images/feira-bsb.jpeg');"><div class="absolute inset-0 bg-black/50 z-0"></div><div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
     <h2 class="motion-reveal font-display-lg text-headline-lg-mobile md:text-headline-lg text-white leading-tight tracking-tight mb-6">Comunidade</h2>
     <p class="motion-reveal motion-delay-1 font-body-md text-body-md text-white/90 mb-8 max-w-2xl font-normal leading-relaxed">
         Mais do que tecnologia, o Lá na Brasília é sobre pessoas. Acreditamos que a força do nosso bairro vem da colaboração diária. Junte-se a nós para fazer a diferença, construir soluções conjuntas e celebrar tudo de bom que a nossa vizinhança tem.
